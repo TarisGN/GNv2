@@ -40,8 +40,6 @@ local healthPetrolTankDelta = 0.0
 local healthPetrolTankDeltaScaled = 0.0
 local tireBurstLuckyNumber
 
-local repairCost = 0
-
 math.randomseed(GetGameTimer());
 
 local tireBurstMaxNumber = cfg.randomTireBurstInterval * 1200; 												-- the tire burst lottery runs roughly 1200 times per minute
@@ -49,26 +47,6 @@ if cfg.randomTireBurstInterval ~= 0 then tireBurstLuckyNumber = math.random(tire
 
 local fixMessagePos = math.random(repairCfg.fixMessageCount)
 local noFixMessagePos = math.random(repairCfg.noFixMessageCount)
-
-ESX                           = nil
-
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-
-	while ESX.GetPlayerData().job == nil do
-		Citizen.Wait(10)
-	end
-
-	PlayerData = ESX.GetPlayerData()
-end)
-
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
-  PlayerData.job = job
-end)
 
 -- Display blips on map
 Citizen.CreateThread(function()
@@ -191,118 +169,17 @@ end
 RegisterNetEvent('iens:repair')
 AddEventHandler('iens:repair', function()
 	if isPedDrivingAVehicle() then
-		local ped = GetPlayerPed(-1)		
-		vehicle = GetVehiclePedIsIn(ped, false)		
-		local engineHealth  = GetVehicleEngineHealth(vehicle)
-		local repairCost = math.floor((1000 - engineHealth)/1000*cfg.price*cfg.DamageMultiplier)
-		
-		if engineHealth == 1000 then
-			repairCost = 150
-		end
-		
+		local ped = GetPlayerPed(-1)
+		vehicle = GetVehiclePedIsIn(ped, false)
 		if IsNearMechanic() then
-			if GetIsVehicleEngineRunning(vehicle) then
-				notification("~g~Engine must be turned off to repair")
-				return
-			else
-				local mechNumb = math.random(1,3)
-				if PlayerData.job.name == 'mecano' then
-					SetVehicleUndriveable(vehicle,false)
-					SetVehicleFixed(vehicle)
-					healthBodyLast=1000.0
-					healthEngineLast=1000.0
-					healthPetrolTankLast=1000.0
-					SetVehicleEngineOn(vehicle, true, false )
-					notification("~g~You fixed the car!")
-					return			
-				else
-					if mechNumb == 1 then
-						notification("~g~Dave the mechanic is looking at your car")
-						Citizen.Wait(11000)
-						notification("~g~Dave is working on your car")
-						Citizen.Wait(11000)
-						if GetIsVehicleEngineRunning(vehicle) then
-							notification("~g~Engine must remain off for repair")
-							return
-						else
-							SetVehicleUndriveable(vehicle,false)
-							SetVehicleFixed(vehicle)
-							healthBodyLast=1000.0
-							healthEngineLast=1000.0
-							healthPetrolTankLast=1000.0
-							SetVehicleEngineOn(vehicle, true, false )
-							if cfg.chargeForRepairs then
-								TriggerServerEvent('rvFailure:takemoney', repairCost)
-								notification("~g~Dave repaired your car for $" .. repairCost .. "!")
-								return
-							else
-								notification("~g~Dave repaired your car!")
-								return
-							end
-						end
-					elseif mechNumb == 2 then
-						notification("~g~Mike the mechanic is looking at your car")
-						Citizen.Wait(11000)
-						notification("~g~Mike looks confused")
-						Citizen.Wait(11000)
-						notification("~g~Mike starts hitting things with a hammer")
-						Citizen.Wait(11000)
-						notification("~g~Mike goes to look for help")
-						Citizen.Wait(11000)
-						notification("~g~Mike's Manager comes back and starts working on your car")
-						Citizen.Wait(11000)	
-						notification("~g~The Manager is also hitting things with a hammer")
-						Citizen.Wait(11000)	
-						if GetIsVehicleEngineRunning(vehicle) then
-							notification("~g~Engine must remain off for repair")
-							return
-						else				
-							SetVehicleUndriveable(vehicle,false)
-							SetVehicleFixed(vehicle)
-							healthBodyLast=1000.0
-							healthEngineLast=1000.0
-							healthPetrolTankLast=1000.0
-							SetVehicleEngineOn(vehicle, true, false )
-							if cfg.chargeForRepairs then
-								TriggerServerEvent('rvFailure:takemoney', repairCost)
-								notification("~g~The Manager repaired your car for $" .. repairCost .. "!")
-								return
-							else
-								notification("~g~The Manager repaired your car!")
-								return
-							end
-						end
-					elseif mechNumb == 3 then
-						notification("~g~Jeff the mechanic is looking at your car")
-						Citizen.Wait(11000)
-						notification("~g~Jeff yells for Dave to come look at it")
-						Citizen.Wait(11000)
-						notification("~g~Just look at it")
-						Citizen.Wait(11000)
-						notification("~g~Dave is working on your car")
-						Citizen.Wait(11000)	
-						if GetIsVehicleEngineRunning(vehicle) then	
-							notification("~g~Engine must remain off for repair")
-							return
-						else			
-							SetVehicleUndriveable(vehicle,false)
-							SetVehicleFixed(vehicle)
-							healthBodyLast=1000.0
-							healthEngineLast=1000.0
-							healthPetrolTankLast=1000.0
-							SetVehicleEngineOn(vehicle, true, false )
-							if cfg.chargeForRepairs then
-								TriggerServerEvent('rvFailure:takemoney', repairCost)
-								notification("~g~Dave repaired your car for $" .. repairCost .. "!")
-								return
-							else
-								notification("~g~Dave repaired your car!")
-								return
-							end
-						end
-					end
-				end
-			end
+			SetVehicleUndriveable(vehicle,false)
+			SetVehicleFixed(vehicle)
+			healthBodyLast=1000.0
+			healthEngineLast=1000.0
+			healthPetrolTankLast=1000.0
+			SetVehicleEngineOn(vehicle, true, false )
+			notification("~g~The mechanic repaired your car!")
+			return
 		end
 		if GetVehicleEngineHealth(vehicle) < cfg.cascadingFailureThreshold + 5 then
 			if GetVehicleOilLevel(vehicle) > 0 then
@@ -313,7 +190,7 @@ AddEventHandler('iens:repair', function()
 				healthPetrolTankLast=750.0
 					SetVehicleEngineOn(vehicle, true, false )
 				SetVehicleOilLevel(vehicle,(GetVehicleOilLevel(vehicle)/3)-0.5)
-				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. "")
+				notification("~g~" .. repairCfg.fixMessages[fixMessagePos] .. ", now get to a mechanic!")
 				fixMessagePos = fixMessagePos + 1
 				if fixMessagePos > repairCfg.fixMessageCount then fixMessagePos = 1 end
 			else

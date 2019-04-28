@@ -141,11 +141,11 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
 
-		if IsControlJustPressed(1, 167) then
+		if IsControlJustPressed(1, 56) then
 			UpdateVocalMode()
 		end
 
-		if IsControlPressed(1, 167) then
+		if IsControlPressed(1, 56) then
 			local ped = GetPlayerPed(-1)
 			local headPos = GetPedBoneCoords(ped, 12844, .0, .0, .0)
 

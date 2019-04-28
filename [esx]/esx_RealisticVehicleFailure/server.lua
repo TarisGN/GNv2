@@ -8,9 +8,8 @@
 --
 --	https://github.com/iEns/RealisticVehicleFailure
 --
-ESX = nil
 
-TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
+
 
 local function checkWhitelist(id)
 	for key, value in pairs(RepairWhitelist) do
@@ -24,7 +23,7 @@ end
 AddEventHandler('chatMessage', function(source, _, message)
 	local msg = string.lower(message)
 	local identifier = GetPlayerIdentifiers(source)[1]
-	if msg == "/fix" then
+	if msg == "/repair" then
 		CancelEvent()
 		if RepairEveryoneWhitelisted == true then
 			TriggerClientEvent('iens:repair', source)
@@ -36,10 +35,4 @@ AddEventHandler('chatMessage', function(source, _, message)
 			end
 		end
 	end
-end)
-
-RegisterServerEvent('rvFailure:takemoney')
-AddEventHandler('rvFailure:takemoney', function(repairCost)
-	local xPlayer = ESX.GetPlayerFromId(source)			
-	xPlayer.removeMoney(repairCost)
 end)
