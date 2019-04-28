@@ -1,54 +1,57 @@
-Config                   = {}
-Config.DrawDistance      = 100.0
-Config.Locale            = 'fr'
-Config.IsMechanicJobOnly = false
+Config              = {}
+Config.DrawDistance = 100.0
+Config.Locale = 'fr'
+Config.IsMecanoJobOnly = true
 
 Config.Zones = {
-
-	ls1 = {
-		Pos   = { x = -337.38, y = -136.92, z = 38.57},
+    ls1 = {
+        Pos   = { x = -337.3863, y = -136.9247, z = 38.5737},
+        Size  = {x = 3.0, y = 3.0, z = 0.2},
+        Color = {r = 204, g = 204, b = 0},
+        Marker= 1,
+        Name  = "Los Santos Customs",
+        Hint  = _U('press_custom')
+    },
+     ls2 = {
+		Pos   = { x = -1155.536, y = -2007.183, z = 12.744},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
-		Name  = _U('blip_name'),
+		Name  = "Los Santos Customs",
 		Hint  = _U('press_custom')
-	},
-
-	ls2 = {
-		Pos   = { x = -1155.53, y = -2007.18, z = 12.74},
+    },
+     ls3 = {
+		Pos   = { x = 731.8163, y = -1088.822, z = 21.733},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
-		Name  = _U('blip_name'),
+		Name  = "Los Santos Customs",
 		Hint  = _U('press_custom')
-	},
-
-	ls3 = {
-		Pos   = { x = 731.81, y = -1088.82, z = 21.73},
+    },
+     ls4 = {
+		Pos   = { x = 1175.04, y = 2640.216, z = 37.32177},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
-		Name  = _U('blip_name'),
+		Name  = "Los Santos Customs",
 		Hint  = _U('press_custom')
-	},
-
-	ls4 = {
-		Pos   = { x = 1175.04, y = 2640.21, z = 37.32},
-		Size  = {x = 3.0, y = 3.0, z = 0.2},
-		Color = {r = 204, g = 204, b = 0},
-		Marker= 1,
-		Name  = _U('blip_name'),
-		Hint  = _U('press_custom')
-	},
-
-	ls5 = {
+    },
+     ls5 = {
 		Pos   = { x = 110.99, y = 6626.39, z = 30.89},
 		Size  = {x = 3.0, y = 3.0, z = 0.2},
 		Color = {r = 204, g = 204, b = 0},
 		Marker= 1,
-		Name  = _U('blip_name'),
+		Name  = "Los Santos Customs",
 		Hint  = _U('press_custom')
-	}
+    },
+     ls6 = {
+		Pos   = { x = -211.12, y = -1323.73, z = 30.89},
+		Size  = {x = 3.0, y = 3.0, z = 0.2},
+		Color = {r = 204, g = 204, b = 0},
+		Marker= 1,
+		Name  = "Benny Custom",
+		Hint  = _U('press_custom')
+    },
 
 }
 
@@ -65,11 +68,11 @@ Config.Colors = {
 	{ label = _U('brown'), value = 'brown'},
 	{ label = _U('purple'), value = 'purple'},
 	{ label = _U('chrome'), value = 'chrome'},
-	{ label = _U('gold'), value = 'gold'}
+	{ label = _U('gold'), value = 'gold'},
 }
 
 function GetColors(color)
-	local colors = {}
+    local colors = {}
 	if color == 'black' then
 		colors = {
 			{ index = 0, label = _U('black')},
@@ -257,7 +260,7 @@ function GetColors(color)
 		}
 	elseif color == 'chrome' then
 		colors = {
-			{ index = 117, label = _U('brushedchrome')},
+			{ index = 117, label = _U('brushechrome')},
 			{ index = 118, label = _U('blackchrome')},
 			{ index = 119, label = _U('brushedaluminum')},
 			{ index = 120, label = _U('chrome')}
@@ -270,7 +273,7 @@ function GetColors(color)
 			{ index = 160, label = _U('lightgold')}
 		}
 	end
-	return colors
+    return colors
 end
 
 function GetWindowName(index)
@@ -401,28 +404,27 @@ end
 
 function GetNeons()
 	local neons = {
-		{ label = _U('white'),		r = 255, 	g = 255, 	b = 255},
-		{ label = "Slate Gray",		r = 112, 	g = 128, 	b = 144},
-		{ label = "Blue",			r = 0, 		g = 0, 		b = 255},
-		{ label = "Light Blue",		r = 0, 		g = 150, 	b = 255},
-		{ label = "Navy Blue", 		r = 0, 		g = 0, 		b = 128},
-		{ label = "Sky Blue", 		r = 135, 	g = 206, 	b = 235},
-		{ label = "Turquoise", 		r = 0, 		g = 245, 	b = 255},
-		{ label = "Mint Green", 	r = 50, 	g = 255, 	b = 155},
-		{ label = "Lime Green", 	r = 0, 		g = 255, 	b = 0},
-		{ label = "Olive", 			r = 128, 	g = 128, 	b = 0},
-		{ label = _U('yellow'), 	r = 255, 	g = 255, 	b = 0},
-		{ label = _U('gold'), 		r = 255, 	g = 215, 	b = 0},
-		{ label = _U('orange'), 	r = 255, 	g = 165, 	b = 0},
-		{ label = _U('wheat'), 		r = 245, 	g = 222, 	b = 179},
-		{ label = _U('red'), 		r = 255, 	g = 0, 		b = 0},
-		{ label = _U('pink'), 		r = 255, 	g = 161, 	b = 211},
-		{ label = _U('brightpink'),	r = 255, 	g = 0, 		b = 255},
-		{ label = _U('purple'), 	r = 153, 	g = 0, 		b = 153},
-		{ label = "Ivory", 			r = 41, 	g = 36, 	b = 33}
-	}
-
-	return neons
+	    { label = _U('white'), 			r = 255, 	g = 255, 	b = 255},
+	    { label = "Slate Gray", 	r = 112, 	g = 128, 	b = 144},
+	    { label = "Blue", 			r = 0, 		g = 0, 		b = 255},
+	    { label = "Light Blue", 	r = 0, 		g = 150, 	b = 255},
+	    { label = "Navy Blue", 		r = 0, 		g = 0, 		b = 128},
+	    { label = "Sky Blue", 		r = 135, 	g = 206, 	b = 235},
+	    { label = "Turquoise", 		r = 0, 		g = 245, 	b = 255},
+	    { label = "Mint Green", 	r = 50, 	g = 255, 	b = 155},
+	    { label = "Lime Green", 	r = 0, 		g = 255, 	b = 0},
+	    { label = "Olive", 			r = 128, 	g = 128, 	b = 0},
+	    { label = _U('yellow'), 		r = 255, 	g = 255, 	b = 0},
+	    { label = _U('gold'), 			r = 255, 	g = 215, 	b = 0},
+	    { label = _U('orange'), 		r = 255, 	g = 165, 	b = 0},
+	    { label = _U('wheat'), 			r = 245, 	g = 222, 	b = 179},
+	    { label = _U('red'), 			r = 255, 	g = 0, 		b = 0},
+	    { label = _U('pink'), 			r = 255, 	g = 161, 	b = 211},
+	    { label = _U('brightpink'), 	r = 255, 	g = 0, 		b = 255},
+	    { label = _U('purple'), 		r = 153, 	g = 0, 		b = 153},
+	    { label = "Ivory", 			r = 41, 	g = 36, 	b = 33}
+   	}
+   	return neons
 end
 
 function GetPlatesName(index)
@@ -441,227 +443,227 @@ end
 
 Config.Menus = {
 	main = {
-		label		= 'LS CUSTOMS',
-		parent		= nil,
-		upgrades	= _U('upgrades'),
-		cosmetics	= _U('cosmetics')
+		label = 'LS CUSTOMS',
+		parent = nil,
+		upgrades = _U('upgrades'),
+		cosmetics = _U('cosmetics')
 	},
 	upgrades = {
-		label			= _U('upgrades'),
-		parent			= 'main',
-		modEngine		= _U('engine'),
-		modBrakes		= _U('brakes'),
-		modTransmission	= _U('transmission'),
-		modSuspension	= _U('suspension'),
-		modArmor		= _U('armor'),
-		modTurbo		= _U('turbo')
+		label = _U('upgrades'),
+		parent = 'main',
+		modEngine = _U('engine'),
+		modBrakes = _U('brakes'),
+		modTransmission = _U('transmission'),
+		modSuspension = _U('suspension'),
+		modArmor = _U('armor'),
+		modTurbo = _U('turbo')
 	},
 	modEngine = {
 		label = _U('engine'),
 		parent = 'upgrades',
 		modType = 11,
-		price = {13.95, 32.56, 65.12, 139.53}
+		price = {2.95, 3.56, 5.12, 10.53}
 	},
 	modBrakes = {
 		label = _U('brakes'),
 		parent = 'upgrades',
 		modType = 12,
-		price = {4.65, 9.3, 18.6, 13.95}
+		price = {2.95, 3.56, 5.12, 10.53}
 	},
 	modTransmission = {
 		label = _U('transmission'),
 		parent = 'upgrades',
 		modType = 13,
-		price = {13.95, 20.93, 46.51}
+		price = {2.95, 3.56, 5.12, 10.53}
 	},
 	modSuspension = {
 		label = _U('suspension'),
 		parent = 'upgrades',
 		modType = 15,
-		price = {3.72, 7.44, 14.88, 29.77, 40.2}
+		price = {2.95, 3.56, 5.12, 10.53}
 	},
 	modArmor = {
 		label = _U('armor'),
 		parent = 'upgrades',
 		modType = 16,
-		price = {69.77, 116.28, 130.00, 150.00, 180.00, 190.00}
+		price = {10.77, 20.28, 30.6, 40.6, 50.6, 60.6}
 	},
 	modTurbo = {
 		label = _U('turbo'),
 		parent = 'upgrades',
 		modType = 17,
-		price = {55.81}
+		price = {10.81}
 	},
 	cosmetics = {
-		label				= _U('cosmetics'),
-		parent				= 'main',
-		bodyparts			= _U('bodyparts'),
-		windowTint			= _U('windowtint'),
-		modHorns			= _U('horns'),
-		neonColor			= _U('neons'),
-		resprays			= _U('respray'),
-		modXenon			= _U('headlights'),
-		plateIndex			= _U('licenseplates'),
-		wheels				= _U('wheels'),
-		modPlateHolder		= _U('modplateholder'),
-		modVanityPlate		= _U('modvanityplate'),
-		modTrimA			= _U('interior'),
-		modOrnaments		= _U('trim'),
-		modDashboard		= _U('dashboard'),
-		modDial				= _U('speedometer'),
-		modDoorSpeaker		= _U('door_speakers'),
-		modSeats			= _U('seats'),
-		modSteeringWheel	= _U('steering_wheel'),
-		modShifterLeavers	= _U('gear_lever'),
-		modAPlate			= _U('quarter_deck'),
-		modSpeakers			= _U('speakers'),
-		modTrunk			= _U('trunk'),
-		modHydrolic			= _U('hydraulic'),
-		modEngineBlock		= _U('engine_block'),
-		modAirFilter		= _U('air_filter'),
-		modStruts			= _U('struts'),
-		modArchCover		= _U('arch_cover'),
-		modAerials			= _U('aerials'),
-		modTrimB			= _U('wings'),
-		modTank				= _U('fuel_tank'),
-		modWindows			= _U('windows'),
-		modLivery			= _U('stickers')
+		label = _U('cosmetics'),
+		parent = 'main',
+		bodyparts = _U('bodyparts'),
+		windowTint = _U('windowtint'),
+		modHorns = _U('horns'),
+		neonColor = _U('neons'),
+		resprays = _U('respray'),
+		modXenon = _U('headlights'),
+		plateIndex = _U('licenseplates'),
+		wheels = _U('wheels'),
+		modPlateHolder   	= 'Plaque - Contour',
+		modVanityPlate   	= 'Plaque - Avant',
+		modTrimA    		= 'Intérieur',
+		modOrnaments    	= 'Ornements',
+		modDashboard    	= 'Tableau de bord',
+		modDial    			= 'Compteur de vitesse',
+		modDoorSpeaker    	= 'Sono portière',
+		modSeats    		= 'Sièges',
+		modSteeringWheel    = 'Volant',
+		modShifterLeavers   = 'Levier de vitesse',
+		modAPlate    		= 'Plage arrière',
+		modSpeakers    		= 'Sono',
+		modTrunk    		= 'Coffre',
+		modHydrolic    		= 'Hydrolique',
+		modEngineBlock    	= 'Bloc moteur',
+		modAirFilter    	= 'Filtre à air',
+		modStruts    		= 'Struts',
+		modArchCover    	= 'Cache-roues',
+		modAerials    		= 'Antennes',
+		modTrimB    		= 'Ailes',
+		modTank    			= 'Réservoir',
+		modWindows    		= 'Fenêtres',
+		modLivery    		= 'Stickers'
 	},
 
 	modPlateHolder = {
-		label = _U('modplateholder'),
+		label = 'Plaque - Contour',
 		parent = 'cosmetics',
 		modType = 25,
 		price = 3.49
 	},
 	modVanityPlate = {
-		label = _U('modvanityplate'),
+		label = 'Plaque - Avant',
 		parent = 'cosmetics',
 		modType = 26,
 		price = 1.1
 	},
 	modTrimA = {
-		label = _U('interior'),
+		label = 'Intérieur',
 		parent = 'cosmetics',
 		modType = 27,
 		price = 6.98
 	},
 	modOrnaments = {
-		label = _U('trim'),
+		label = 'Ornements',
 		parent = 'cosmetics',
 		modType = 28,
 		price = 0.9
 	},
 	modDashboard = {
-		label = _U('dashboard'),
+		label = 'Tableau de bord',
 		parent = 'cosmetics',
 		modType = 29,
 		price = 4.65
 	},
 	modDial = {
-		label = _U('speedometer'),
+		label = 'Compteur de vitesse',
 		parent = 'cosmetics',
 		modType = 30,
 		price = 4.19
 	},
 	modDoorSpeaker = {
-		label = _U('door_speakers'),
+		label = 'Sono portière',
 		parent = 'cosmetics',
 		modType = 31,
 		price = 5.58
 	},
 	modSeats = {
-		label = _U('seats'),
+		label = 'Siège',
 		parent = 'cosmetics',
 		modType = 32,
 		price = 4.65
 	},
 	modSteeringWheel = {
-		label = _U('steering_wheel'),
+		label = 'Volant',
 		parent = 'cosmetics',
 		modType = 33,
 		price = 4.19
 	},
 	modShifterLeavers = {
-		label = _U('gear_lever'),
+		label = 'Levier de vitesse',
 		parent = 'cosmetics',
 		modType = 34,
 		price = 3.26
 	},
 	modAPlate = {
-		label = _U('quarter_deck'),
+		label = 'Plage arrière',
 		parent = 'cosmetics',
 		modType = 35,
 		price = 4.19
 	},
 	modSpeakers = {
-		label = _U('speakers'),
+		label = 'Sono',
 		parent = 'cosmetics',
 		modType = 36,
 		price = 6.98
 	},
 	modTrunk = {
-		label = _U('trunk'),
+		label = 'Coffre',
 		parent = 'cosmetics',
 		modType = 37,
 		price = 5.58
 	},
 	modHydrolic = {
-		label = _U('hydraulic'),
+		label = 'Hydrolique',
 		parent = 'cosmetics',
 		modType = 38,
 		price = 5.12
 	},
 	modEngineBlock = {
-		label = _U('engine_block'),
+		label = 'Bloc moteur',
 		parent = 'cosmetics',
 		modType = 39,
 		price = 5.12
 	},
 	modAirFilter = {
-		label = _U('air_filter'),
+		label = 'Filtre a air',
 		parent = 'cosmetics',
 		modType = 40,
 		price = 3.72
 	},
 	modStruts = {
-		label = _U('struts'),
+		label = 'Struts',
 		parent = 'cosmetics',
 		modType = 41,
 		price = 6.51
 	},
 	modArchCover = {
-		label = _U('arch_cover'),
+		label = 'Cache-roues',
 		parent = 'cosmetics',
 		modType = 42,
 		price = 4.19
 	},
 	modAerials = {
-		label = _U('aerials'),
+		label = 'Antennes',
 		parent = 'cosmetics',
 		modType = 43,
 		price = 1.12
 	},
 	modTrimB = {
-		label = _U('wings'),
+		label = 'Ailes',
 		parent = 'cosmetics',
 		modType = 44,
 		price = 6.05
 	},
 	modTank = {
-		label = _U('fuel_tank'),
+		label = 'Réservoir',
 		parent = 'cosmetics',
 		modType = 45,
 		price = 4.19
 	},
 	modWindows = {
-		label = _U('windows'),
+		label = 'Fenêtres',
 		parent = 'cosmetics',
 		modType = 46,
 		price = 4.19
 	},
 	modLivery = {
-		label = _U('stickers'),
+		label = 'Stickers',
 		parent = 'cosmetics',
 		modType = 48,
 		price = 9.3
@@ -675,16 +677,16 @@ Config.Menus = {
 		tyreSmokeColor = _U('tiresmoke')
 	},
 	modFrontWheelsTypes = {
-		label				= _U('wheel_type'),
-		parent				= 'wheels',
-		modFrontWheelsType0	= _U('sport'),
-		modFrontWheelsType1	= _U('muscle'),
-		modFrontWheelsType2	= _U('lowrider'),
-		modFrontWheelsType3	= _U('suv'),
-		modFrontWheelsType4	= _U('allterrain'),
-		modFrontWheelsType5	= _U('tuning'),
-		modFrontWheelsType6	= _U('motorcycle'),
-		modFrontWheelsType7	= _U('highend')
+		label               = _U('wheel_type'),
+		parent              = 'wheels',
+		modFrontWheelsType0 = _U('sport'),
+		modFrontWheelsType1 = _U('muscle'),
+		modFrontWheelsType2 = _U('lowrider'),
+		modFrontWheelsType3 = _U('suv'),
+		modFrontWheelsType4 = _U('allterrain'),
+		modFrontWheelsType5 = _U('tuning'),
+		modFrontWheelsType6 = _U('motorcycle'),
+		modFrontWheelsType7 = _U('highend')
 	},
 	modFrontWheelsType0 = {
 		label = _U('sport'),
@@ -743,11 +745,11 @@ Config.Menus = {
 		price = 5.12
 	},
 	modFrontWheelsColor = {
-		label = _U('wheel_color'),
+		label = 'Peinture Jantes',
 		parent = 'wheels'
 	},
 	wheelColor = {
-		label = _U('wheel_color'),
+		label = 'Peinture Jantes',
 		parent = 'modFrontWheelsColor',
 		modType = 'wheelColor',
 		price = 0.66
