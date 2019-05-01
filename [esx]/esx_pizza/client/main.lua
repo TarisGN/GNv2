@@ -91,10 +91,11 @@ function MenuCloakRoom()
       end
 			if data.current.value == 'job_wear' then
 				isInService = true
-				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
-
-					if skin.sex == 0 or 1 then
-					local model = GetHashKey("csb_burgerdrug")
+				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
+	    			if skin.sex == 0 then
+	    				TriggerEvent('skinchanger:loadClothes', skin, jobSkin.skin_male)
+					else
+	    				TriggerEvent('skinchanger:loadClothes', skin, jobSkin.skin_female)
 
 					RequestModel(model)
 					while not HasModelLoaded(model) do

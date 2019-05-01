@@ -132,7 +132,7 @@ Citizen.CreateThread(function()
   while true do
 
     Wait(0)
-    if IsControlPressed(0, Keys["-"]) and (GetGameTimer() - GUI.Time) > 1000 then
+    if IsControlPressed(0, Keys["G"]) and (GetGameTimer() - GUI.Time) > 1000 then
 		if count == 0 then
 			openmenuvehicle()
 			count = count +1

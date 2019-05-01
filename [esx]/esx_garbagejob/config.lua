@@ -5,15 +5,15 @@ Config.TruckPrice	= 30
 Config.Locale       = 'fr'
 
 Config.Trucks = {
-	"trash",
-	"trash2",
-	"biff",	
+	"boxville2",
+	
+
 	--"scrap"
 }
 
 Config.Cloakroom = {
 	CloakRoom = {
-			Pos   = {x = -321.70, y = -1545.94, z = 30.02},
+			Pos   = {x = 79.09, y = 112.15, z = 80.17, a=157},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1
@@ -22,14 +22,14 @@ Config.Cloakroom = {
 
 Config.Zones = {
 	VehicleSpawner = {
-			Pos   = {x = -316.16, y = -1536.08, z = 26.65},
+			Pos   = {x = 59.89, y = 124.06, z = 78.25, a=157},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1
 		},
 
 	VehicleSpawnPoint = {
-			Pos   = {x = -328.50, y = -1520.99, z = 27.53},
+			Pos   = {x = 63.7, y = 122.08, z = 78.15, a=157},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Type  = -1
 		},
@@ -220,7 +220,7 @@ Config.Livraison = {
 		},
 		
 	RetourCamion = {
-			Pos   = {x = -335.26095581055, y = -1529.5614013672, z = 27.565467834473},
+			Pos   = {x = 73.12, y = 120.17, z = 78.18},
 			Color = {r = 204, g = 204, b = 0},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
@@ -229,10 +229,10 @@ Config.Livraison = {
 		},
 	
 	AnnulerMission = {
-			Pos   = {x = -314.62796020508, y = -1514.5662841797, z = 27.677434921265},
-			Color = {r = 204, g = 204, b = 0},
+			Pos   = {x = 78.78, y = 107.08, z = 78.18},
+			Color = {r = 226, g = 10, b = 50},
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
-			Color = {r = 204, g = 204, b = 0},
+			Color = {r = 226, g = 10, b = 50},
 			Type  = 1,
 			Paye = 0
 		},

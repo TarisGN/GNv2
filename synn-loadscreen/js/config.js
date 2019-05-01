@@ -61,10 +61,10 @@ var config =
     */
     loadingMessages: 
     [
-        "Créez ou rejoignez une Entreprise... &#x1f40c;",
+        "Trouvez du boulot ou glandez ... &#x1f40c;",
         "Les FREEKILL & SPAWNKILL seront sanctionnés ... &#x1f40c;",
-        "La Police protège le Maire et ses interets.... &#x1f40c; &#x1f528;",
-        "N'oubliez pas de faire vos papiers.... &#x1f40c; &#x1f462;",
+        "La Police protège les citoyens de LS .... &#x1f40c; &#x1f528;",
+        "N'oubliez pas de passer le permis.... &#x1f40c; &#x1f462;",
         "PRO TIP : Rejoignez le discord !.. &#x1f41a.",
         "Le RP est de rigueur ! Communiquez !... &#x1f3cf",
         "Annoncez toujours au mieux vos intentions ... &#x1f9e0;",
@@ -89,7 +89,7 @@ var config =
     */
     music:
     [
-        "PvT8Kx1WC64"
+        "PWMTDRWJqu4"
     ],
 
 
@@ -101,14 +101,14 @@ var config =
     /*
         Default volume for the player. Please keep this under 50%, to not blowout someones eardrums x)
      */
-    musicVolume: 20,
+    musicVolume: 15,
 
     /*
         Should the background change images?
         True: it will not change backgrounds.
         False: it will change backgrounds.
     */
-    staticBackground: false,
+    staticBackground: true,
     
     /*
         Array of images you'd like to display as the background.
@@ -117,8 +117,7 @@ var config =
     background: 
     [
         "img/bg1.jpg",
-        "img/bg2.jpg",
-        "img/bg3.jpg",
+
     ],
 
     /*

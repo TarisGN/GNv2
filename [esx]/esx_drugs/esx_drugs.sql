@@ -1,8 +1,10 @@
-INSERT INTO `items` (name, label) VALUES
+USE `essentialmode`;
 
-	('coke', 'Coke'),
-	('coke_pooch', 'Pochon de coke'),
-	('meth', 'Meth'),
-	('meth_pooch', 'Pochon de meth')
+INSERT INTO `items` (`name`, `label`, `limit`, `rare`, `can_remove`) VALUES
+	('cannabis', 'Cannabis', 40, 0, 1),
+	('marijuana', 'Marijuana', 14, 0, 1)
+;
 
+INSERT INTO `licenses` (`type`, `label`) VALUES
+	('weed_processing', 'Weed Processing License')
 ;
