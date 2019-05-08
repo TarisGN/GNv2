@@ -32,7 +32,7 @@ Locales['fr'] = {
     ['fridge_inventory']         = 'Contenu du frigo',
 
     -- Shops  
-    ['shop']                     = 'Boutique Unicorn',
+    ['shop']                     = 'Boutique du TEQUILALA',
     ['shop_menu']                = 'Appuyez sur ~INPUT_CONTEXT~ pour accéder à la boutique.',
     ['bought']                   = 'Vous avez acheté ~b~1x ',
     ['not_enough_money']         = 'Vous n\'avez ~r~pas assez~s~ d\'argent.',
@@ -80,14 +80,9 @@ Locales['fr'] = {
     ['ice']                      = 'Glaçon',
     ['soda']                     = 'Soda',
     ['whisky']                   = 'Whisky',
-    ['champagne']                = 'champagne',
-    ['cappuccino']               = 'cappuccino',
-    ['biere']                    = 'Biere',
-    ['pastis']                   = 'Pastis',
     ['rhum']                     = 'Rhum',
     ['tequila']                  = 'Tequila',
     ['menthe']                   = 'Menthe',
-    ['sushi']                    = 'Sushi',
     ['jusfruit']                 = 'Jus de fruits',
     ['jagerbomb']                = 'Jägerbomb',
     ['bolcacahuetes']            = 'Cacahuètes',
@@ -112,11 +107,11 @@ Locales['fr'] = {
     ['craft']                    = 'Mélange terminé de ~g~',
 
     -- Misc  
-    ['map_blip']                 = 'Unicorn',
-    ['unicorn']                  = 'Unicorn',
+    ['map_blip']                 = 'Vanilla Unicorn',
+    ['unicorn']                  = 'Vanilla Unicorn',
 
     -- Phone  
-    ['unicorn_phone']            = 'Unicorn',
+    ['unicorn_phone']            = 'TEQUILALA',
     ['unicorn_customer']         = 'Citoyen',
 
     -- Teleporters

@@ -24,7 +24,7 @@ var config =
             1 = Multiple progressbars
             2 = Collapsed progressbars
      */
-    progressBarType: 2,
+    progressBarType: 0,
 
     /*
         Here you can disable some of progressbars.

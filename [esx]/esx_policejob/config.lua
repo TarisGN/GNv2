@@ -14,7 +14,7 @@ Config.EnableLicenses             = true -- enable if you're using esx_license
 Config.EnableHandcuffTimer        = true -- enable handcuff timer? will unrestrain player after the time ends
 Config.HandcuffTimer              = 10 * 60000 -- 10 mins
 
-Config.EnableJobBlip              = false -- enable blips for colleagues, requires esx_society
+Config.EnableJobBlip              = true -- enable blips for colleagues, requires esx_society
 
 Config.MaxInService               = -1
 Config.Locale                     = 'fr'
@@ -152,12 +152,13 @@ Config.AuthorizedVehicles = {
 	},
 
 	officer = {
-		{ model = 'police3', label = 'Police Interceptor', price = 20000 }
+		{ model = 'police2', label = 'Police Interceptor', price = 20000 }
 	},
 
 	sergeant = {
 		{ model = 'policet', label = 'Police Transporter', price = 18500 },
-		{ model = 'policeb', label = 'Police Bike', price = 30500 }
+		{ model = 'policeb', label = 'Police Bike', price = 30500 },
+		{ model = 'police3', label = 'Police Chiron', price = 20000 }
 	},
 
 	intendent = {
@@ -166,14 +167,25 @@ Config.AuthorizedVehicles = {
 
 	lieutenant = {
 		{ model = 'riot', label = 'Police Riot', price = 70000 },
-		{ model = 'fbi2', label = 'FIB SUV', price = 60000 }
+		{ model = 'fbi2', label = 'FIB SUV', price = 60000 },
+				{ model = 'police3', label = 'Police Chiron', price = 160000 }
 	},
 
 	chef = {
-
+			{ model = 'policet', label = 'Police Transporter', price = 18500 },
+		{ model = 'policeb', label = 'Police Bike', price = 30500 },
+		{ model = 'police3', label = 'Police Chiron', price = 160000 },
+		{ model = 'riot', label = 'Police Riot', price = 70000 },
+		{ model = 'fbi2', label = 'FIB SUV', price = 60000 }
+		
 	},
 
 	boss = {
+		{ model = 'policet', label = 'Police Transporter', price = 18500 },
+		{ model = 'policeb', label = 'Police Bike', price = 30500 },
+		{ model = 'police3', label = 'Police Chiron', price = 160000 },
+		{ model = 'riot', label = 'Police Riot', price = 70000 },
+		{ model = 'fbi2', label = 'FIB SUV', price = 60000 }
 
 	}
 }

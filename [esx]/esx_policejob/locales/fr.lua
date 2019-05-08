@@ -73,6 +73,7 @@ Locales['fr'] = {
   ['put_in_vehicle'] = 'mettre dans véhicule',
   ['out_the_vehicle'] = 'sortir du véhicule',
   ['fine'] = 'Amende',
+  ['T.I.G.'] = 'T.I.G.',
   ['unpaid_bills'] = 'gérer les amendes impayées',
   ['license_check'] = 'gérer les licences',
   ['license_revoke'] = 'révoquer la licence',

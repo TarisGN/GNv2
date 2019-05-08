@@ -1,15 +1,21 @@
-version '1.0.0'
+resource_manifest_version '44febabe-d386-4d18-afbe-5e627f4af937'
+
+description 'ESX Atm'
+
+version '1.1.0'
 
 server_scripts {
-	
-  '@es_extended/locale.lua',
+	'@es_extended/locale.lua',
 	'locales/de.lua',
 	'locales/br.lua',
 	'locales/en.lua',
+	'locales/fi.lua',
 	'locales/fr.lua',
 	'locales/es.lua',
+	'locales/sv.lua',
+	'locales/cs.lua',
 	'config.lua',
-	'server/esx_atm_sv.lua'
+	'server/main.lua'
 }
 
 client_scripts {
@@ -17,18 +23,23 @@ client_scripts {
 	'locales/de.lua',
 	'locales/br.lua',
 	'locales/en.lua',
+	'locales/fi.lua',
 	'locales/fr.lua',
 	'locales/es.lua',
+	'locales/sv.lua',
+	'locales/cs.lua',
 	'config.lua',
-	'client/esx_atm_cl.lua'
+	'client/main.lua'
 }
 
 ui_page 'html/ui.html'
 
 files {
-    'html/ui.html',
-    'html/pdown.ttf',
-    'html/img/cursor.png',
-    'html/css/app.css',
-    'html/scripts/app.js'
+	'html/ui.html',
+	'html/roboto.ttf',
+	'html/img/fleeca.png',
+	'html/css/app.css',
+	'html/scripts/app.js'
 }
+
+dependency 'es_extended'

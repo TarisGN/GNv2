@@ -29,6 +29,7 @@ Locales['fr'] = {
 	['used_kebab'] = "Vous avez utilisé 1x ~y~Kebab~s~",
 	['used_sushi'] = "Vous avez utilisé 1x ~y~Sushi~s~",
 	['used_pizza'] = "Vous avez utilisé 1x ~y~Pizza~s~",
+	['used_menu'] = "Vous avez utilisé 1x ~y~Menu Complet~s~",
 
 
 

@@ -6,14 +6,12 @@ Config.Locale       = 'fr'
 
 Config.Trucks = {
 	"boxville2",
-	
-
 	--"scrap"
 }
 
 Config.Cloakroom = {
 	CloakRoom = {
-			Pos   = {x = 79.09, y = 112.15, z = 80.17, a=157},
+			Pos   = {x = 73.79, y = 112.50, z = 78.12},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1
@@ -22,14 +20,14 @@ Config.Cloakroom = {
 
 Config.Zones = {
 	VehicleSpawner = {
-			Pos   = {x = 59.89, y = 124.06, z = 78.25, a=157},
+			Pos   = {x = 59.89, y = 124.06, z = 79.25},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1
 		},
 
 	VehicleSpawnPoint = {
-			Pos   = {x = 63.7, y = 122.08, z = 78.15, a=157},
+			Pos   = {x = 63.7, y = 122.08, z = 79.15},
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Type  = -1
 		},
@@ -44,7 +42,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	-- fleeca2
 	Delivery2LS = {
@@ -53,7 +51,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	-- blainecounty
 	Delivery3LS = {
@@ -62,7 +60,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	-- PrincipalBank
 	Delivery4LS = {
@@ -89,7 +87,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	--grovestreetgas
 	Delivery7LS = {
@@ -116,7 +114,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	--Senora Way Fuel Depot
 	Delivery10LS = {
@@ -125,7 +123,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 ------------------------------------------- 2nd Patrol 
 	-- Palomino Noose HQ
@@ -135,7 +133,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 400
+			Paye = 200
 		},
 	-- El Burro Oil plain
 	Delivery2BC = {
@@ -144,7 +142,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 300
+			Paye = 200
 		},
 	-- Orchardville ave
 	Delivery3BC = {
@@ -153,7 +151,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 300
+			Paye = 100
 		},
 	-- Elysian Fields
 	Delivery4BC = {
@@ -162,7 +160,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 300
+			Paye = 100
 		},
 	-- Popular St
 	Delivery5BC = {
@@ -171,7 +169,7 @@ Config.Livraison = {
 			Size  = {x = 5.0, y = 5.0, z = 3.0},
 			Color = {r = 204, g = 204, b = 0},
 			Type  = 1,
-			Paye = 300
+			Paye = 200
 		},
 	-- Carson Ave
 	Delivery6BC = {

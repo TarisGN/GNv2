@@ -2,21 +2,23 @@ local m = {} -- <<< Don't touch this!
 -----------[ SETTINGS ]---------------------------------------------------
 
 -- Delay in minutes between messages
-m.delay = 10
+m.delay = 8
 
 -- Prefix appears in front of each message. 
 -- Suffix appears on the end of each message.
 -- Leave a prefix/suffix empty ( '' ) to disable them.
-m.prefix = '^6[INFOSHRP] '
+m.prefix = '^6[infosHRP] '
 m.suffix = '^6.'
 
 -- You can make as many messages as you want.
 -- You can use ^0-^9 in your messages to change text color.
 m.messages = {   
-    'Consultez les règles du serveur sur ^4https://discord.gg/Wm6neGW ',
-    'Rejoignez le DISCORD pour suivre et contribuer ^4https://discord.gg/Wm6neGW ',
-    'Ce Tchat ne doit servir que^7Utilisez le avec Parcimonie',
+    'Consultez les règles du serveur sur ^8https://discord.me/GNv2 ',
+    'Rejoignez le DISCORD (navigateur) ^8https://discord.me/GNv2 ',
+    'Ce Tchat ne doit servir pour annonces ^8Utilisez DISCORD',
     '^8Communiquez toujours vos intentions !',
+    'Utilisez l\'iventaire en ^8glissant l\'objet souhaité sur la fonction souhaitée',
+    'Appuyez sur la touche ^8"=" ^0pour voir la liste des touches de GNv2',
 }
 
 -- Player identifiers on this list will not receive any messages.

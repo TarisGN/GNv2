@@ -678,6 +678,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('put_in_vehicle'),	value = 'put_in_vehicle'},
 				{label = _U('out_the_vehicle'),	value = 'out_the_vehicle'},
 				{label = _U('fine'),			value = 'fine'},
+				{label = _U('T.I.G.'),    value = 'communityservice'},
 				{label = _U('unpaid_bills'),	value = 'unpaid_bills'}
 			}
 		
@@ -715,7 +716,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
-					end
+					elseif action == 'communityservice' then SendToCommunityService(GetPlayerServerId(closestPlayer))
+				end
 
 				else
 					ESX.ShowNotification(_U('no_players_nearby'))
@@ -1949,6 +1951,25 @@ Citizen.CreateThread(function()
 
 	end
 end)
+
+
+function SendToCommunityService(player)
+    ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'Community Service Menu', {
+        title = "Community Service Menu",
+    }, function (data2, menu)
+        local community_services_count = tonumber(data2.value)
+        
+        if community_services_count == nil then
+            ESX.ShowNotification('Invalid services count.')
+        else
+            TriggerServerEvent("esx_communityservice:sendToCommunityService", player, community_services_count)
+            menu.close()
+        end
+    end, function (data2, menu)
+        menu.close()
+    end)
+end
+
 
 -- Enter / Exit entity zone events
 Citizen.CreateThread(function()

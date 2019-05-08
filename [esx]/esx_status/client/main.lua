@@ -59,7 +59,7 @@ AddEventHandler('esx_status:load', function(status)
 				status = GetStatusData()
 			})
 
-			TriggerEvent('ESX_HealthBAR-UI:updateStatus', GetStatusData(true))
+			TriggerEvent('esx_ladderhud:updateBasics', GetStatusData(true))
 			Citizen.Wait(Config.TickTime)
 		end
 	end)

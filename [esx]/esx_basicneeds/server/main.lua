@@ -38,6 +38,18 @@ ESX.RegisterUsableItem('hamburger', function(source)
 
 end)
 
+ESX.RegisterUsableItem('hamburger2', function(source)
+
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('hamburger2', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 300000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_burger'))
+
+end)
+
 ESX.RegisterUsableItem('icetea', function(source)
 
 	local xPlayer = ESX.GetPlayerFromId(source)
@@ -271,5 +283,30 @@ ESX.RegisterUsableItem('menthe', function(source)
         TriggerClientEvent('esx_status:add', source, 'hunger', 100)
         TriggerClientEvent('esx_basicneeds:onEat', source)
         TriggerClientEvent('esx:showNotification', source, _U('used_menthe'))
+
+end)
+
+ESX.RegisterUsableItem('jus_raisin', function(source)
+
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('jus_raisin', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 40000)
+	TriggerClientEvent('esx_status:add', source, 'thirst', 120000)
+	TriggerClientEvent('esx_basicneeds:onDrink', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_jus'))
+
+end)
+
+ESX.RegisterUsableItem('menu', function(source)
+
+	local xPlayer = ESX.GetPlayerFromId(source)
+
+	xPlayer.removeInventoryItem('menu', 1)
+
+	TriggerClientEvent('esx_status:add', source, 'hunger', 400000)
+	TriggerClientEvent('esx_basicneeds:onEat', source)
+	TriggerClientEvent('esx:showNotification', source, _U('used_menu'))
 
 end)

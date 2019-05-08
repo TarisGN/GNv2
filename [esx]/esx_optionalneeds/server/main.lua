@@ -247,3 +247,15 @@ ESX.RegisterUsableItem('golem', function(source)
     TriggerClientEvent('esx:showNotification', source, _U('used_golem'))
 
 end)
+
+ESX.RegisterUsableItem('grand_cru', function(source)
+
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+    xPlayer.removeInventoryItem('grand_cru', 1)
+
+    TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
+    TriggerClientEvent('esx_basicneeds:onDrink', source)
+    TriggerClientEvent('esx:showNotification', source, _U('used_grand_cru'))
+
+end)
