@@ -13,13 +13,47 @@ Config.MissCraft                  = 10 -- %
 
 
 Config.AuthorizedVehicles = {
-    { name = 'stalion2',  label = 'Stalion BurgerShot' },
+    { name = 'taco',  label = 'Taco' },
+    { name = 'foodtruck',  label = 'Foodtruck' },
 }
+
+
+Config.Cig = {
+  'hamburger',
+  'menu'
+}
+
+Config.CigResellChances = {
+  hamburger = 75,
+  menu = 95,
+}
+
+Config.CigResellQuantity= {
+  hamburger = {min = 5, max = 10},
+  menu = {min = 5, max = 10},
+}
+
+Config.CigPrices = {
+  hamburger = {min = 15, max = 10},
+  menu = {min = 15,   max = 15},
+}
+
+Config.CigPricesHigh = {
+  hamburger = {min = 95, max = 10},
+  menu = {min = 110,   max = 15},
+}
+
+Config.Time = {
+    hamburger = 5 * 60,
+    menu = 5 * 60,
+}
+
+
 
 Config.Blips = {
     
     Blip = {
-      Pos     = { x = -1183.7126464844, y = -884.37322998047, z = 13.799719810486 },
+      Pos     = { x = 233.3, y = -876.07, z = 29.49 },
       Sprite  = 106,
       Display = 4,
       Scale   = 1.2,
@@ -31,22 +65,22 @@ Config.Blips = {
 Config.Zones = {
 
     Cloakrooms = {
-        Pos   = { x = -1200.5029296875, y = -890.33709716797, z = 12.995155334473 },
+        Pos   = { x = 241.28, y = -890.71, z = 29.49 },
         Size  = { x = 1.5, y = 1.5, z = 1.0 },
         Color = { r = 255, g = 187, b = 255 },
         Type  = 1,
     },
 
     Vaults = {
-        Pos   = { x = -1196.6790771484, y = -894.33947753906, z = 12.995160102844 },
+        Pos   = { x = 220.0, y = -884.38, z = 29.49 },
         Size  = { x = 1.6, y = 1.6, z = 1.0 },
         Color = { r = 248, g = 248, b = 255 },
         Type  = 1,
     },
 
     Vehicles = {
-        Pos          = { x = -1177.3461914063, y = -890.84027099609, z = 12.791997909546 },
-        SpawnPoint   = { x = -1174.3291015625, y = -889.08239746094, z = 13.893969535828 },
+        Pos          = { x = 231.2, y = -896.0, z = 29.69 },
+        SpawnPoint   = { x = 221.46, y = -898.87, z = 29.69 },
         Size         = { x = 1.8, y = 1.8, z = 1.0 },
         Color        = { r = 255, g = 255, b = 0 },
         Type         = 1,
@@ -54,11 +88,19 @@ Config.Zones = {
     },
 
     VehicleDeleters = {
-        Pos   = { x = -1165.5532226563, y = -887.93658447266, z = 13.130926132202 },
+        Pos   = { x = 223.0, y = -890.0, z = 29.69 },
         Size  = { x = 3.0, y = 3.0, z = 0.2 },
         Color = { r = 255, g = 255, b = 0 },
         Type  = 1,
     },
+
+    SellFarm = {
+    Pos   = { x = -826.44, y = -1261.76, z = 4.0},
+    Size  = { x = 1.6, y = 1.6, z = 1.0 },
+    Color = {r = 136, g = 243, b = 216},
+    Name  = "Vente des produits",
+    Type  = 1
+  },
 
 --[[
     Helicopters = {
@@ -79,12 +121,16 @@ Config.Zones = {
 ]]--
 
     BossActions = {
-        Pos   = { x = -1194.7763671875, y = -900.59460449219, z = 12.99515914917 },
+        Pos   = { x = 246.7, y = -888.56, z = 30.49 },
         Size  = { x = 1.5, y = 1.5, z = 1.0 },
         Color = { r = 0, g = 100, b = 0 },
         Type  = 1,
     },
+
+
 }
+
+
 
 -- CHECK SKINCHANGER CLIENT MAIN.LUA for matching elements
 

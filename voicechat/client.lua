@@ -1,8 +1,9 @@
 local VoiceMode = {
-	{ dist = 3, message = "Voice range set on 3 meters." },
-	{ dist = 8, message = "Voice range set on 8 meters." },
-	{ dist = 14, message = "Voice range set on 14 meters." },
-	{ veh = true, dist = 4, func = function(ped) return IsPedInAnyVehicle(ped) end, message = "Voice range set to your vehicle." },
+	{ dist = 2, message = "Voice range set on 3 meters." },
+	{ dist = 6, message = "Voice range set on 12 meters." },
+	{ dist = 10, message = "Voice range set on 20 meters." },
+	{ dist = 18, message = "Voice range set on 30 meters." },
+	{ veh = true, dist = 1, func = function(ped) return IsPedInAnyVehicle(ped) end, message = "Voice range set to your vehicle." },
 }
 
 local Voice = {}
@@ -17,7 +18,7 @@ end
 
 local function GetPlayers()
 	local players = {}
-	for i = 0, 64 do
+	for i = 0, 32 do
 		if NetworkIsPlayerActive(i) then
 			players[#players + 1] = i
 		end
@@ -89,7 +90,7 @@ end
 
 local shouldReset = false
 Citizen.CreateThread(function()
-	for i = 0, 63 do SendVoiceToPlayer(i, false) end
+	for i = 0, 32 do SendVoiceToPlayer(i, false) end
 
 	while true do
 		Citizen.Wait(300)
@@ -103,7 +104,7 @@ Citizen.CreateThread(function()
 		elseif not sendVoice and shouldReset then
 			shouldReset = false
 			--TriggerEvent("pichot:toggleNUI", { voip = false })
-			for i = 0, 63 do
+			for i = 0, 32 do
 				SendVoiceToPlayer(i, false)
 			end
 		end

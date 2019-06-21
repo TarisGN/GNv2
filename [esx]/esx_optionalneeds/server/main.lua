@@ -255,7 +255,21 @@ ESX.RegisterUsableItem('grand_cru', function(source)
     xPlayer.removeInventoryItem('grand_cru', 1)
 
     TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
+    TriggerClientEvent('esx_status:add', source, 'thirst', 250000)
     TriggerClientEvent('esx_basicneeds:onDrink', source)
     TriggerClientEvent('esx:showNotification', source, _U('used_grand_cru'))
+
+end)
+
+ESX.RegisterUsableItem('sake', function(source)
+
+    local xPlayer = ESX.GetPlayerFromId(source)
+
+    xPlayer.removeInventoryItem('sake', 1)
+
+    TriggerClientEvent('esx_status:add', source, 'drunk', 400000)
+    TriggerClientEvent('esx_status:add', source, 'thirst', 250000)
+    TriggerClientEvent('esx_basicneeds:onDrink', source)
+    TriggerClientEvent('esx:showNotification', source, _U('used_sake'))
 
 end)

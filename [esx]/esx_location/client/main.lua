@@ -40,7 +40,7 @@ function OpenVehicleMenu() -- Menu location véhicules
 
     local elements = {
         {label = 'Twizy', value = 'twizy', price = 100}, -- Véhicule n°1
-		{label = 'Mobylette 103SP', value = 'faggio', price = 100}, -- Véhicule n°1
+		{label = 'Faggion', value = 'faggio', price = 100}, -- Véhicule n°1
     }
 
     ESX.UI.Menu.CloseAll()
@@ -55,7 +55,7 @@ function OpenVehicleMenu() -- Menu location véhicules
             for i=1, #elements, 1 do
                 local playerPed = GetPlayerPed(-1)
                 local platenum = math.random(00001, 99998)
-				local coords    = Config.Zones.LocationVehicleEntering.Pos 
+				local coords    = Config.Zones.LocationVehicleEntering.Pos		
 				local price     = data.current.price
                 ESX.Game.SpawnVehicle(data.current.value, coords, 336.0, function(vehicle)
                     TaskWarpPedIntoVehicle(playerPed, vehicle, -1) -- Téléportation du joueur dans le véhicule
@@ -75,6 +75,8 @@ function OpenVehicleMenu() -- Menu location véhicules
     )
 end
 
+
+
 AddEventHandler('esx_location:hasEnteredMarker', function(zone)
 
     if zone == 'LocationVehicleEntering' then
@@ -82,6 +84,7 @@ AddEventHandler('esx_location:hasEnteredMarker', function(zone)
         CurrentActionMsg  = '~INPUT_CONTEXT~ Location de véhicules'
         CurrentActionData = {}
 	end
+
 
 end)
 
@@ -151,6 +154,7 @@ end)
 Citizen.CreateThread(function()	
 
     local blip = AddBlipForCoord(Config.Zones.LocationVehicleEntering.Pos.x, Config.Zones.LocationVehicleEntering.Pos.y, Config.Zones.LocationVehicleEntering.Pos.z)
+
     
 	SetBlipSprite (blip, 171)
 	SetBlipDisplay(blip, 4)

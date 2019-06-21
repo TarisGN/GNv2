@@ -67,28 +67,10 @@ function MenuCloakRoom()
 		function(data, menu)
 			if data.current.value == 'citizen_wear' then
 				isInService = false
-				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
-					  local model = nil
-
-					  if skin.sex == 0 or 1 then
-						model = GetHashKey("mp_m_freemode_01")
-					  else
-						model = GetHashKey("mp_f_freemode_01")
-					  end
-
-					  RequestModel(model)
-					  while not HasModelLoaded(model) do
-						RequestModel(model)
-						Citizen.Wait(1)
-					  end
-
-					  SetPlayerModel(PlayerId(), model)
-					  SetModelAsNoLongerNeeded(model)
-
-					  TriggerEvent('skinchanger:loadSkin', skin)
-					  TriggerEvent('esx:restoreLoadout')
-        end)
-      end
+				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin)
+	    			TriggerEvent('skinchanger:loadSkin', skin)
+				end)
+			end
 			if data.current.value == 'job_wear' then
 				isInService = true
 				ESX.TriggerServerCallback('esx_skin:getPlayerSkin', function(skin, jobSkin)
@@ -96,20 +78,9 @@ function MenuCloakRoom()
 	    				TriggerEvent('skinchanger:loadClothes', skin, jobSkin.skin_male)
 					else
 	    				TriggerEvent('skinchanger:loadClothes', skin, jobSkin.skin_female)
-
-					RequestModel(model)
-					while not HasModelLoaded(model) do
-					RequestModel(model)
-					Citizen.Wait(0)
 					end
-
-				SetPlayerModel(PlayerId(), model)
-				SetModelAsNoLongerNeeded(model)
-					end
-					
 				end)
-
-			end	
+			end
 			menu.close()
 		end,
 		function(data, menu)
@@ -117,7 +88,6 @@ function MenuCloakRoom()
 		end
 	)
 end
-
 function MenuVehicleSpawner()
 	local elements = {}
 

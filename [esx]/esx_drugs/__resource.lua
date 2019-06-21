@@ -21,6 +21,7 @@ client_scripts {
 	'locales/sv.lua',
 	'config.lua',
 	'client/main.lua',
+	--'client/coke.lua',
 	'client/weed.lua'
 }
 

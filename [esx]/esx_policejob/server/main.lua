@@ -580,3 +580,58 @@ RegisterServerEvent('esx_policejob:message')
 AddEventHandler('esx_policejob:message', function(target, msg)
 	TriggerClientEvent('esx:showNotification', target, msg)
 end)
+
+function ShowPermis(source,identifier)
+  local _source = source
+  local licenses = MySQL.Sync.fetchAll("SELECT * FROM user_licenses where `owner`= @owner",{['@owner'] = identifier})
+
+    for i=1, #licenses, 1 do
+
+        if(licenses[i].type =="weapon")then
+         TriggerClientEvent('esx:showNotification',_source,"Permis de port d'arme")
+        end
+        if(licenses[i].type =="dmv")then
+            TriggerClientEvent('esx:showNotification',_source,"Code de la route")
+        end
+        if(licenses[i].type =="drive")then
+            TriggerClientEvent('esx:showNotification',_source,"Permis de conduire")
+        end
+        if(licenses[i].type =="drive_bike")then
+           TriggerClientEvent('esx:showNotification',_source,"Permis moto")
+        end
+		if(licenses[i].type =="aircraft")then
+           TriggerClientEvent('esx:showNotification',_source,"Permis avion")
+
+        end
+
+        if(licenses[i].type =="boating")then
+           TriggerClientEvent('esx:showNotification',_source,"Permis bateau")
+        end
+
+        if(licenses[i].type =="drive_truck")then
+          TriggerClientEvent('esx:showNotification',_source,"Permis camion")
+        end
+
+
+    end
+
+end
+
+
+
+RegisterServerEvent('esx_policejob:license_see')
+AddEventHandler('esx_policejob:license_see', function(target)
+
+  local sourceXPlayer = ESX.GetPlayerFromId(source)
+  local targetXPlayer = ESX.GetPlayerFromId(target)
+
+  local identifier = GetPlayerIdentifiers(target)[1]
+
+
+  TriggerClientEvent('esx:showNotification', sourceXPlayer.source, '~b~'..targetXPlayer.name)
+  ShowPermis(source,identifier)
+
+
+
+
+end)

@@ -36,7 +36,7 @@ Citizen.CreateThread(function ()
 				DrawMarker(1, garageCoords2[1], garageCoords2[2], garageCoords2[3], 0, 0, 0, 0, 0, 0, 5.0, 5.0, 2.0, 0, 157, 0, 155, 0, 0, 2, 0, 0, 0, 0)
 				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 then
 			--		DrawSpecialText("Tryk enter for at vaske bilen") -- danish
-					DrawSpecialText("Appuyez sur ENTREE pour laver la voiture (1000$)")
+					DrawSpecialText("Appuyez sur ENTREE pour laver la voiture (200$)")
 					if(IsControlJustPressed(1, Key)) then
 						TriggerServerEvent('carwash:checkmoney')
 					end
@@ -59,7 +59,7 @@ end)
 RegisterNetEvent('carwash:notenoughmoney')
 AddEventHandler('carwash:notenoughmoney', function(moneyleft)
 --	TriggerEvent('chatMessage', 'Bilvasken', {255, 0, 0}, "Du har ikke penge nok, du mangler " .. moneyleft .. "kr") -- danish
-	TriggerEvent('chatMessage', 'carwash', {255, 0, 0}, "PAs assez de cash, il manque " .. moneyleft .. "$") 
+	TriggerEvent('chatMessage', 'carwash', {255, 0, 0}, "Pas assez de cash, il manque " .. moneyleft .. "$") 
 	DrawSpecialText(msg, 5000)
 	Wait(5000)
 end)

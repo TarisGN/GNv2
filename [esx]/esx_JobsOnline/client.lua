@@ -34,16 +34,16 @@ end)
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
-			DrawText2(0.70, 1.449, 1.0,1.0,0.45, "LSPD: " .. policeonline , 0 ,119, 255, 150)
-			DrawText2(0.70, 1.42, 1.0,1.0,0.45, "LSDH: " .. emsonline , 246 ,56, 56, 150)
-			DrawText2(0.70, 1.391, 1.0,1.0,0.45, "Taxis: " .. taxionline , 239 ,255, 0, 150)
+			DrawText2(0.66, 1.449, 1.0,1.0,0.45, "L.S.P.D: " .. policeonline , 0 ,119, 255, 150)
+			DrawText2(0.66, 1.42, 1.0,1.0,0.45, "E.M.S: " .. emsonline , 246 ,56, 56, 150)
+			DrawText2(0.66, 1.391, 1.0,1.0,0.45, "Taxis: " .. taxionline , 239 ,255, 0, 150)
 	end
 end)
 
 
 
 function DrawText2(x,y ,width,height,scale, text, r,g,b,a)
-    SetTextFont(4)
+    SetTextFont(6)
     SetTextProportional(0)
     SetTextScale(scale, scale)
     SetTextColour(r, g, b, a)

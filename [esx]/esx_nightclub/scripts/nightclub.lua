@@ -1,6 +1,8 @@
 Citizen.CreateThread(function()
     -- Getting the object to interact with
+	Citizen.Wait(1000)
     AfterHoursNightclubs = exports['bob74_ipl']:GetAfterHoursNightclubsObject()
+	Citizen.Wait(1000)
 
     -------------------------------------------
     -- Interior part
@@ -10,13 +12,13 @@ Citizen.CreateThread(function()
     AfterHoursNightclubs.Ipl.Interior.Load()
     
     -- Setting the name of the club to The Palace
-    AfterHoursNightclubs.Interior.Name.Set(AfterHoursNightclubs.Interior.Name.studio, true)
+    AfterHoursNightclubs.Interior.Name.Set(AfterHoursNightclubs.Interior.Name.paradise, true)
 
     -- Glamorous style
-    AfterHoursNightclubs.Interior.Style.Set(AfterHoursNightclubs.Interior.Style.glam, true)
+    AfterHoursNightclubs.Interior.Style.Set(AfterHoursNightclubs.Interior.Style.edgy, true)
 
     -- Glam podiums
-    AfterHoursNightclubs.Interior.Podium.Set(AfterHoursNightclubs.Interior.Podium.glam, true)
+    AfterHoursNightclubs.Interior.Podium.Set(AfterHoursNightclubs.Interior.Podium.edgy, true)
 
     -- speakers
     AfterHoursNightclubs.Interior.Speakers.Set(AfterHoursNightclubs.Interior.Speakers.upgrade, true)
@@ -25,7 +27,7 @@ Citizen.CreateThread(function()
     AfterHoursNightclubs.Interior.Security.Set(AfterHoursNightclubs.Interior.Security.on, true)
     
     -- Setting turntables
-    AfterHoursNightclubs.Interior.Turntables.Set(AfterHoursNightclubs.Interior.Turntables.style03, true)
+    AfterHoursNightclubs.Interior.Turntables.Set(AfterHoursNightclubs.Interior.Turntables.style01, true)
 
     -- Lights --
 	
@@ -52,10 +54,10 @@ Citizen.CreateThread(function()
 	AfterHoursNightclubs.Interior.Lights.Droplets.Set(AfterHoursNightclubs.Interior.Lights.Droplets.purple, true)
 	AfterHoursNightclubs.Interior.Lights.Droplets.Set(AfterHoursNightclubs.Interior.Lights.Droplets.yellow, true)
    
-   -- Details
-   --AfterHoursNightclubs.Interior.Details.Enable(true)
-   AfterHoursNightclubs.Interior.Details.Enable(AfterHoursNightclubs.Interior.Details.truck, true)
-   AfterHoursNightclubs.Interior.Details.Enable(AfterHoursNightclubs.Interior.Details.dryIce, true)
+    -- Details
+    AfterHoursNightclubs.Interior.Details.Enable(true)
+    AfterHoursNightclubs.Interior.Details.Enable(AfterHoursNightclubs.Interior.Details.truck, true)
+    AfterHoursNightclubs.Interior.Details.Enable(AfterHoursNightclubs.Interior.Details.dryIce, true)
     
     -- Enabling bottles behind the bar
     AfterHoursNightclubs.Interior.Bar.Enable(true)
@@ -76,7 +78,7 @@ Citizen.CreateThread(function()
 
     -- La Mesa - Exterior
     -- No barriers
-    --AfterHoursNightclubs.Mesa.Barrier.Enable(false)
+    AfterHoursNightclubs.Mesa.Barrier.Enable(true)
 
     -- Only "For sale" poster
     AfterHoursNightclubs.Mesa.Posters.Enable(AfterHoursNightclubs.Posters.forSale, true)

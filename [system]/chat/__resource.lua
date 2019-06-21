@@ -23,4 +23,5 @@ files {
     'html/vendor/fonts/LatoLight.woff2',
     'html/vendor/fonts/LatoBold.woff2',
     'html/vendor/fonts/LatoBold2.woff2',
+    'html/vendor/fonts/BarlowCondensed.ttf',
   }

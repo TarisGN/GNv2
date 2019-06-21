@@ -27,6 +27,33 @@ local CurrentTask = {}
 local playerInService = false
 local spawnedVehicles, isInShopMenu = {}, false
 
+local pedindex = {}
+
+
+Citizen.CreateThread(function()
+    while true
+        do
+            -- 1.
+        SetVehicleDensityMultiplierThisFrame(0.5)
+        SetPedDensityMultiplierThisFrame(0.8)
+        SetRandomVehicleDensityMultiplierThisFrame(0.5)
+        SetParkedVehicleDensityMultiplierThisFrame(0.6)
+        --SetScenarioPedDensityMultiplierThisFrame(2.0, 2.0)
+       
+        --local playerPed = GetPlayerPed(-1)
+        --local pos = GetEntityCoords(playerPed)
+        --RemoveVehiclesFromGeneratorsInArea(pos['x'] - 900.0, pos['y'] - 900.0, pos['z'] - 900.0, pos['x'] + 900.0, pos['y'] + 900.0, pos['z'] + 900.0);
+       
+       
+        -- 2.
+        --SetGarbageTrucks(0)
+        --SetRandomBoats(0)
+        --SetRandomBus(0)
+        Citizen.Wait(1)
+    end
+ 
+end)
+
 ESX                           = nil
 
 Citizen.CreateThread(function()
@@ -679,6 +706,7 @@ function OpenPoliceActionsMenu()
 				{label = _U('out_the_vehicle'),	value = 'out_the_vehicle'},
 				{label = _U('fine'),			value = 'fine'},
 				{label = _U('T.I.G.'),    value = 'communityservice'},
+				{label = "Prison",               value = 'jail_menu'},
 				{label = _U('unpaid_bills'),	value = 'unpaid_bills'}
 			}
 		
@@ -716,6 +744,8 @@ function OpenPoliceActionsMenu()
 						ShowPlayerLicense(closestPlayer)
 					elseif action == 'unpaid_bills' then
 						OpenUnpaidBillsMenu(closestPlayer)
+					elseif action == 'jail_menu' then
+						TriggerEvent("esx-qalle-jail:openJailMenu")
 					elseif action == 'communityservice' then SendToCommunityService(GetPlayerServerId(closestPlayer))
 				end
 
@@ -2065,7 +2095,7 @@ Citizen.CreateThread(function()
 						CurrentAction     = 'menu_boss_actions'
 						CurrentActionMsg  = _U('open_bossmenu')
 						CurrentActionData = {}
-					end, { wash = false }) -- disable washing money
+					end, { wash = true }) -- disable washing money
 				elseif CurrentAction == 'remove_entity' then
 					DeleteEntity(CurrentActionData.entity)
 				end

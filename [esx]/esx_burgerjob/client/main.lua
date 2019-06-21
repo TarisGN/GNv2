@@ -537,6 +537,8 @@ function OpenSocietyActionsMenu()
                   title = _U('crafting'),
                   align = 'top-left',
                   elements = {
+                      {label = _U('debalpain'),         value = 'caissepain'},
+                      {label = _U('debalenergy'),         value = 'caisseenergy'},
                       {label = _U('Hamburger'),     value = 'hamburger'},
                       {label = _U('Burger Frite'),         value = 'menu'}
 
@@ -554,6 +556,39 @@ function OpenSocietyActionsMenu()
           )
       end
      
+    -- elseif data.current.value == 'object_spawner' then
+    --   ESX.UI.Menu.Open(
+    --   'default', GetCurrentResourceName(), 'citizen_interaction',
+    --   {
+    --     title    = _U('traffic_interaction'),
+    --     align    = 'top-left',
+    --     elements = {
+    --       {label = _U('table'),    value = 'prop_table_para_comb_02'},
+    --       {label = _U('chaise'),   value = 'prop_table_03_chr'}
+    --     }
+    --   }, function(data2, menu2)
+    --     local model     = data2.current.value
+    --     local playerPed = PlayerPedId()
+    --     local coords    = GetEntityCoords(playerPed)
+    --     local forward   = GetEntityForwardVector(playerPed)
+    --     local x, y, z   = table.unpack(coords + forward * 1.0)
+
+    --             ESX.Game.SpawnObject(model, {
+    --       x = x,
+    --       y = y,
+    --       z = z
+    --     }, function(obj)
+    --       SetEntityHeading(obj, GetEntityHeading(playerPed))
+    --       PlaceObjectOnGroundProperly(obj)
+    --     end)
+
+    --   end, function(data2, menu2)
+    --     menu2.close()
+    --   end)
+    -- end
+
+
+
     end,
     function(data, menu)
 
@@ -713,6 +748,52 @@ function animsAction(animObj)
 end
 
 
+-- Enter / Exit entity zone events
+Citizen.CreateThread(function()
+  local trackedEntities = {
+    'prop_table_para_comb_02',
+    'prop_table_03_chr'
+  }
+
+  while true do
+    Citizen.Wait(500)
+
+    local playerPed = PlayerPedId()
+    local coords    = GetEntityCoords(playerPed)
+
+    local closestDistance = -1
+    local closestEntity   = nil
+
+    for i=1, #trackedEntities, 1 do
+      local object = GetClosestObjectOfType(coords, 3.0, GetHashKey(trackedEntities[i]), false, false, false)
+
+      if DoesEntityExist(object) then
+        local objCoords = GetEntityCoords(object)
+        local distance  = GetDistanceBetweenCoords(coords, objCoords, true)
+
+        if closestDistance == -1 or closestDistance > distance then
+          closestDistance = distance
+          closestEntity   = object
+        end
+      end
+    end
+
+    if closestDistance ~= -1 and closestDistance <= 3.0 then
+      if LastEntity ~= closestEntity then
+        TriggerEvent('esx_burgerjob:hasEnteredEntityZone', closestEntity)
+        LastEntity = closestEntity
+      end
+    else
+      if LastEntity ~= nil then
+        TriggerEvent('esx_burgerjob:hasExitedEntityZone', LastEntity)
+        LastEntity = nil
+      end
+    end
+  end
+end)
+
+
+
 AddEventHandler('esx_burgerjob:hasEnteredMarker', function(zone)
  
     if zone == 'BossActions' and IsGradeBoss() then
@@ -721,6 +802,13 @@ AddEventHandler('esx_burgerjob:hasEnteredMarker', function(zone)
       CurrentActionData = {}
     end
 
+if zone == 'SellFarm' and PlayerData.job ~= nil and PlayerData.job.name == 'burgershot'  then
+    CurrentAction     = 'farm_resell'
+    CurrentActionMsg  = _U('press_sell')
+    CurrentActionData = {zone = zone}
+  end
+
+     
     if zone == 'Cloakrooms' then
       CurrentAction     = 'menu_cloakroom'
       CurrentActionMsg  = _U('open_cloackroom')
@@ -795,7 +883,33 @@ AddEventHandler('esx_burgerjob:hasEnteredMarker', function(zone)
 
 end)
 
+
+AddEventHandler('esx_burgerjob:hasEnteredEntityZone', function(entity)
+  local playerPed = PlayerPedId()
+
+  if PlayerData.job ~= nil and PlayerData.job.name == 'burgershot' and IsPedOnFoot(playerPed) then
+    CurrentAction     = 'remove_entity'
+    CurrentActionMsg  = _U('remove_prop')
+    CurrentActionData = {entity = entity}
+  end
+
+end)
+
+AddEventHandler('esx_burgerjob:hasExitedEntityZone', function(entity)
+  if CurrentAction == 'remove_entity' then
+    CurrentAction = nil
+  end
+end)
+
+
+
+
 AddEventHandler('esx_burgerjob:hasExitedMarker', function(zone)
+
+if (zone == 'SellFarm') and PlayerData.job ~= nil and PlayerData.job.name == 'burgershot' then
+    TriggerServerEvent('esx_burgerjob:stopSell')
+  end
+
 
     CurrentAction = nil
     ESX.UI.Menu.CloseAll()
@@ -903,6 +1017,10 @@ Citizen.CreateThread(function()
             OpenCloakroomMenu()
         end
 
+         if CurrentAction == 'farm_resell' then
+                TriggerServerEvent('esx_burgerjob:startSell', CurrentActionData.zone)
+            end
+
         if CurrentAction == 'menu_vault' then
             OpenVaultMenu()
         end
@@ -951,7 +1069,11 @@ Citizen.CreateThread(function()
 
         end
 
+        -- elseif CurrentAction == 'remove_entity' then
+        --   DeleteEntity(CurrentActionData.entity)
+        -- end
         
+                
         CurrentAction = nil
 
       end

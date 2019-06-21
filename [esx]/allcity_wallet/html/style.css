@@ -1,7 +1,7 @@
 
 @font-face {
   font-family: 'Edo';
-  src: url('font/edosz.ttf');  
+  src: url('font/GoodBrush.ttf');  
 }
 
 body { background: url('img/bg/bg-body-test.jpg'); font-family: 'Edo'; color: white;  text-shadow:
@@ -23,9 +23,9 @@ body { background: url('img/bg/bg-body-test.jpg'); font-family: 'Edo'; color: wh
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100%;
-	border-bottom-right-radius: 40px;
-	border-top-right-radius: 40px;
-	border: 1px solid #333;
+	border-bottom-right-radius: 12px;
+	border-top-right-radius: 12px;
+	border: 1px solid #49198a;
 }
 
 #bankDiv, #walletDiv, #blackMoneyDiv, #societyDiv {
@@ -74,8 +74,8 @@ body { background: url('img/bg/bg-body-test.jpg'); font-family: 'Edo'; color: wh
 	width: 17.6vw;
 	height: 48vh;
 	background: rgba(0,0,0,0.3);
-	border-bottom-right-radius: 40px;
-	border-top-right-radius: 40px;
+	border-bottom-right-radius: 12px;
+	border-top-right-radius: 12px;
 	border: 1px solid #333;
 }
 
@@ -93,7 +93,7 @@ body { background: url('img/bg/bg-body-test.jpg'); font-family: 'Edo'; color: wh
 
 #offshoreImg, #bankImg, #walletImg, #societyImg{
 	margin: 0 10px 0 10px;
-	height: 50px;
+	height: 35px;
 	width: 50px;
 }
 

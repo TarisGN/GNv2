@@ -89,7 +89,7 @@ var config =
     */
     music:
     [
-        "PWMTDRWJqu4"
+        "lCPtRRrjUio"
     ],
 
 
@@ -108,7 +108,7 @@ var config =
         True: it will not change backgrounds.
         False: it will change backgrounds.
     */
-    staticBackground: true,
+    staticBackground: false,
     
     /*
         Array of images you'd like to display as the background.
@@ -117,6 +117,8 @@ var config =
     background: 
     [
         "img/bg1.jpg",
+		"img/bg2.jpg",
+		
 
     ],
 

@@ -17,7 +17,9 @@ files {
 	'html/js/app.js',
 
 	'html/fonts/pdown.ttf',
+	'html/fonts/GoodBrush.ttf',
 	'html/fonts/bankgothic.ttf'
+
 }
 
 dependency 'es_extended'

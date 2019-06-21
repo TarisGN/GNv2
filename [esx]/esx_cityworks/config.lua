@@ -69,7 +69,7 @@ Config.Zones = {
 	ItemRequires = "pay_works",
 	ItemRequires_name = "City Check",
 	ItemDrop = 100,
-	ItemPrice  = 450,
+	ItemPrice  = 550,
 	hint = 'Press ~INPUT_CONTEXT~ to cash your City Checks',
   },
 

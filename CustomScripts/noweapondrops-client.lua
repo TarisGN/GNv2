@@ -1,9 +1,20 @@
+function SetWeaponDrops()
+    local handle, ped = FindFirstPed()
+    local finished = false 
+
+    repeat 
+        if not IsEntityDead(ped) then
+            SetPedDropsWeaponsWhenDead(ped, false) 
+        end
+        finished, ped = FindNextPed(handle)
+    until not finished
+
+    EndFindPed(handle)
+end
+
 Citizen.CreateThread(function()
-  while true do
-    Citizen.Wait(1)
-    -- List of pickup hashes (https://pastebin.com/8EuSv2r1)
-    RemoveAllPickupsOfType(0xDF711959) -- carbine rifle
-    RemoveAllPickupsOfType(0xF9AFB48F) -- pistol
-    RemoveAllPickupsOfType(0xA9355DCD) -- pumpshotgun
-  end
+    while true do
+        SetWeaponDrops()
+        Citizen.Wait(500)
+    end
 end)

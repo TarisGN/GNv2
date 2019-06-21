@@ -2,8 +2,8 @@ var visable = false;
 
 $(function () {
 	window.addEventListener('message', function (event) {
+
 		switch (event.data.action) {
-			
 			case 'toggle':
 				if (visable) {
 					$('#wrap').fadeOut();
@@ -20,39 +20,24 @@ $(function () {
 				break;
 
 			case 'toggleID':
-				if (event.data.state == true) {
-					$('.sid').show();
-					$('.pid').show();
+
+				if (event.data.state) {
+					$('td:nth-child(2),th:nth-child(2)').show();
+					$('td:nth-child(5),th:nth-child(5)').show();
 				} else {
-					$('.sid').hide();
-					$('.pid').hide();
+					$('td:nth-child(2),th:nth-child(2)').hide();
+					$('td:nth-child(5),th:nth-child(5)').hide();
 				}
+
 				break;
 
-			case 'toggleJob':
-				if(event.data.state == true) {
-					$('.sjob').show();
-				} else {
-					$('.sjob').hide();
-				}
-				break;
-				
-			case 'scroll':
-				if(event.data.scroll == "up") {
-					var pos = $("#playerwrapper").scrollTop()
-					$("#playerwrapper").scrollTop(pos - 140);
-				} else if(event.data.scroll == "down") {
-					var pos = $("#playerwrapper").scrollTop()
-					$("#playerwrapper").scrollTop(pos + 140);
-				}
-				break;
-			
 			case 'updatePlayerJobs':
 				var jobs = event.data.jobs;
+
 				$('#player_count').html(jobs.player_count);
+
 				$('#ems').html(jobs.ems);
 				$('#police').html(jobs.police);
-				$('#sheriff').html(jobs.sheriff);
 				$('#taxi').html(jobs.taxi);
 				$('#mechanic').html(jobs.mechanic);
 				$('#cardealer').html(jobs.cardealer);
@@ -60,10 +45,10 @@ $(function () {
 				break;
 
 			case 'updatePlayerList':
-				$('#playerwrapper').empty();
-				$('#playerwrapper').append(event.data.players);
+				$('#playerlist tr:gt(0)').remove();
+				$('#playerlist').append(event.data.players);
 				applyPingColor();
-				sortPlayerList();
+				//sortPlayerList();
 				break;
 
 			case 'updatePing':
@@ -75,6 +60,15 @@ $(function () {
 				if (event.data.maxPlayers) {
 					$('#max_players').html(event.data.maxPlayers);
 				}
+
+				if (event.data.uptime) {
+					$('#server_uptime').html(event.data.uptime);
+				}
+
+				if (event.data.playTime) {
+					$('#play_time').html(event.data.playTime);
+				}
+
 				break;
 
 			default:
@@ -86,29 +80,34 @@ $(function () {
 
 function applyPingColor() {
 	$('#playerlist tr').each(function () {
-		$(this).find('.ping').each(function () {
+		$(this).find('td:nth-child(3),td:nth-child(6)').each(function () {
 			var ping = $(this).html();
-			var color = '#00e68a';
+			var color = 'green';
 
 			if (ping > 50 && ping < 80) {
-				color = '#ff8000';
+				color = 'orange';
 			} else if (ping >= 80) {
-				color = '#ff0000';
+				color = 'red';
 			}
 
 			$(this).css('color', color);
-			$(this).html(ping + "<span style='color:#ffffff;'> ms</span>");
+			$(this).html(ping + " <span style='color:white;'>ms</span>");
 		});
 
 	});
 }
 
+// Todo: not the best code
 function updatePing(players) {
-	jQuery.each(players, function (i, v) {
-		if (v != null) {
+	jQuery.each(players, function (index, element) {
+		if (element != null) {
 			$('#playerlist tr:not(.heading)').each(function () {
-				$(this).find('.pid:contains(' + v.id + ')').each(function () {
-					$(this).parent().find('.ping').html(v.ping);
+				$(this).find('td:nth-child(2):contains(' + element.id + ')').each(function () {
+					$(this).parent().find('td').eq(2).html(element.ping);
+				});
+
+				$(this).find('td:nth-child(5):contains(' + element.id + ')').each(function () {
+					$(this).parent().find('td').eq(5).html(element.ping);
 				});
 			});
 		}

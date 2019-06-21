@@ -89,9 +89,9 @@ function OpenLicenseShop()
 			table.insert(elements, {label = _U('license_weapon') .. ' <span style="color: green;">$' .. Config.WeaponLicensePrice .. '</span>', value = 'buy_license_weapon'})
 		end
 		
-		if not ownedLicenses['weed_processing'] then
-			table.insert(elements, {label = _U('license_weed') .. ' <span style="color: green;">$' .. Config.WeedLicensePrice .. '</span>', value = 'buy_license_weed'})
-		end
+		-- if not ownedLicenses['weed_processing'] then
+		-- 	table.insert(elements, {label = _U('license_weed') .. ' <span style="color: green;">$' .. Config.WeedLicensePrice .. '</span>', value = 'buy_license_weed'})
+		-- end
 	end
 	
 	ESX.UI.Menu.CloseAll()
@@ -119,9 +119,9 @@ function OpenLicenseShop()
 		elseif data.current.value == 'buy_license_weapon' then
 			TriggerServerEvent('esx_licenseshop:buyLicenseWeapon')
 			menu.close()
-		elseif data.current.value == 'buy_license_weed' then
-			TriggerServerEvent('esx_licenseshop:buyLicenseWeed')
-			menu.close()
+		-- elseif data.current.value == 'buy_license_weed' then
+		-- 	TriggerServerEvent('esx_licenseshop:buyLicenseWeed')
+		-- 	menu.close()
 		end
 	end, function(data, menu)
 		menu.close()
@@ -271,7 +271,7 @@ function refreshBlips()
 	end
 end
 
--- Create Ped
+Create Ped
 Citizen.CreateThread(function()
     RequestModel(GetHashKey("a_m_y_business_03"))
 	

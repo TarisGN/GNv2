@@ -1,5 +1,5 @@
 Locales['fr'] = {
-  ['shop'] = 'magasin',
+  ['shop'] = 'Magasin',
   ['shops'] = 'magasins',
   ['press_menu'] = 'appuyez sur ~INPUT_CONTEXT~ pour accéder au magasin.',
   ['shop_item'] = '$%s',

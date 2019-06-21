@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
 		end
 
 --[[		local t = 0
-			for i = 0,32 do
+			for i =  do
 				if(GetPlayerName(i))then
 					if(NetworkIsPlayerTalking(i))then
 						t = t + 1

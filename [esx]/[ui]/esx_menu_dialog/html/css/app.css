@@ -1,7 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins|Roboto+Condensed');
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/GoodBrush.ttf');
+}
 
 #controls {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins';
 	font-size: 3em;
 	color: #FFF;
 	position: absolute;
@@ -14,7 +17,7 @@
 }
 
 .dialog {
-	font-family: 'Poppins', sans-serif;
+	font-family: 'Poppins';
 	background-color: #212121;
   color: #fff;
 	position: absolute;
@@ -36,7 +39,7 @@ box-shadow: 10px 9px 42px -5px rgba(0, 0, 0, 0.52);
 	display: flex;
 	flex-basis: 100%;
 	align-items: center;
-	color: #00e1ff;
+	color: #cc0aae;
 }
 
 .dialog.big {

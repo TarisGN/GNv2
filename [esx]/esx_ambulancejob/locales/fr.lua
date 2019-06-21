@@ -67,6 +67,14 @@ Locales['fr'] = {
   ['ems_menu_putincar'] = 'mettre dans véhicule',
   ['ems_menu_small'] = 'soigner petites blessures',
   ['ems_menu_big'] = 'soigner blessures graves',
+
+  -- Billing Menu  
+  ['billing']                  = 'Facture',
+  ['no_players_nearby']        = 'Aucun joueur à proximité',
+  ['billing_amount']           = 'Montant de la facture',
+  ['amount_invalid']           = 'Montant invalide',
+  ['create_bill']                     = 'Créer facture',
+
   -- Phone
   ['alert_ambulance'] = 'alerte Ambulance',
   -- Death

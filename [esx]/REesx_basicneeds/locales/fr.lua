@@ -1,0 +1,36 @@
+Locales['fr'] = {
+
+	['used_pain'] = 'vous avez utilisé 1 Pain',
+	['used_eau'] = 'vous avez utilisé 1x eau',
+	['used_cap'] = 'Vous avez bu 1x ~y~Cappuccino~s~',
+	['used_sand'] = 'Vous avez mangé 1x ~y~Sandwich~s~',
+	['used_burger'] = 'Vous avez mangé 1x ~y~Hamburger~s~',
+	['used_wine'] = 'Vous avez bu 1x ~y~Vin~s~',
+	['used_beer'] = 'Vous avez bu 1x ~y~Bière~s~',
+	['used_vodka'] = 'Vous avez bu 1x ~y~Vodka~s~',
+	['used_tequila'] = 'Vous avez bu 1x ~y~Tequila~s~',
+	['used_whisky'] = 'Vous avez bu 1x ~y~Whisky~s~',
+	['used_cocacola'] = 'Vous avez bu 1x ~y~Coca Cola~s~',
+	['used_icetea'] = 'Vous avez bu 1x ~y~Ice Tea~s~',
+	['used_redbull'] = 'Vous avez bu 1x ~y~Redbull~s~',
+	['used_soda'] = "Vous avez utilisé 1x ~y~Soda~s~",
+	['used_jusfruit'] = "Vous avez utilisé 1x ~y~Jus de fruits~s~",
+	['used_energy'] = "Vous avez utilisé 1x ~y~Energy drink~s~",
+	['used_drpepper'] = "Vous avez utilisé 1x ~y~Dr Pepper~s~",
+	['used_limonade'] = "Vous avez utilisé 1x ~y~Limonade~s~",
+	['used_mixapero'] = "Vous avez utilisé 1x ~y~Mix Apero~s~",
+	['used_bolnoixcajou'] = "Vous avez utilisé 1x ~y~Bol de noix de cajou~s~",
+	['used_bolcacahuetes'] = "Vous avez utilisé 1x ~y~Bol de cacahuètes~s~",
+	['used_bolpistache'] = "Vous avez utilisé 1x ~y~Bol de pistaches~s~",
+	['used_bolchips'] = "Vous avez utilisé 1x ~y~Bol de chips~s~",
+	['used_saucisson'] = "Vous avez utilisé 1x ~y~Saucisson~s~",
+	['used_ice'] = "Vous avez utilisé 1x ~y~Glaçon~s~",
+	['used_menthe'] = "Vous avez utilisé 1x ~y~Feuille de menthe~s~",
+	['used_kebab'] = "Vous avez utilisé 1x ~y~Kebab~s~",
+	['used_sushi'] = "Vous avez utilisé 1x ~y~Sushi~s~",
+	['used_pizza'] = "Vous avez utilisé 1x ~y~Pizza~s~",
+	['used_menu'] = "Vous avez utilisé 1x ~y~Menu Complet~s~",
+
+
+
+}

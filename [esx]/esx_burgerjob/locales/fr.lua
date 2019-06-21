@@ -53,6 +53,19 @@ Locales['fr'] = {
     ['burgershot_phone']            = 'burgershot',
     ['burgershot_customer']         = 'Citoyen',    
 
+['debalbiere']             = 'Déballage bière',
+    ['debalwhisky']             = 'Déballage whisky',
+    ['debalsake']             = 'Déballage saké',
+    ['debalenergy']             = 'Déballage energy',
+    ['debalsoda']             = 'Déballage Soda',
+    ['debalpain']             = 'Déballage pain',
+
+    ['packbiere']             = 'pack de bière',
+    ['packwhisky']             = 'boite de whisky',
+    ['packsake']             = 'boite de saké',
+    ['packenergy']             = 'pack d\'energy',
+    ['packsoda']             = 'pack de Soda',
+    ['packvodka']             = 'boite de vodka',
 
 -- Crafting Menu  
     ['crafting']                 = 'Cuisine',
@@ -63,6 +76,16 @@ Locales['fr'] = {
     ['Hamburger']                = 'Hamburger',
     ['Burger frite']             = 'Menu Complet',
 
+        ['press_sell']                = 'Appuyez Pour Vendre', 
+      ['sale_in_prog']              = 'Vente en Cours',
+  ['comp_earned']               = 'Argent Gagné ',
+  ['no_product_sale']           = 'Pas produit a vendre',
+
+
+['remove_prop'] = 'appuyez sur ~INPUT_CONTEXT~ pour enlever l\'objet',
+['traffic_interaction'] = 'Objets',
+  ['chaise'] = 'chaise',
+  ['table'] = 'table',
 
 
 

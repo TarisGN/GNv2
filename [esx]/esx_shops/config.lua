@@ -36,13 +36,6 @@ Config.Zones = {
 		}
 	},
 
-Primeur = {
-		Items = {},
-		Pos = {
-			{x = 1475.63,  y = 2725.09,  z = 37.66}
-			
-		}
-	},
 
 Abattoir = {
 		Items = {},

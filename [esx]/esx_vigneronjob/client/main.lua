@@ -205,7 +205,7 @@ function OpenVehicleSpawnerMenu()
 	
 		local elements = {
 			{label = 'Véhicule de Travail',  value = 'bison3'},
-			{label = 'Tracteur',  value = 'tractor2'},
+			{label = 'Véhicule Transport',  value = 'rumpobox'},
 		}
 		
 		ESX.UI.Menu.Open(

@@ -7,7 +7,7 @@
 */
 @font-face {
   font-family: 'Edo';
-  src: url('../font/edosz.ttf');  
+  src: url('../font/GoodBrush.ttf');  
 }
 
 html {
@@ -21,7 +21,7 @@ body {
 }
 
 section {
-	height: 500px;
+	height: 600px;
 
 }
 
@@ -36,8 +36,8 @@ section {
 	height: 600px;
 	color: white;
 	border-radius: 40px;
-	border: 1px solid #333;
-	background-color: rgba(0,0,0,0.5);
+	border: 1px solid #49198a;
+	background-color: rgba(37,37,37,0.5);
 	display: none;
 	flex-direction: column;
 }
@@ -50,6 +50,7 @@ header {
 	opacity: 0.8;
 	border-top-left-radius: 40px;
 	border-top-right-radius: 40px;
+	
 
 }
 
@@ -66,7 +67,7 @@ header img {
 	justify-content: center;
 	align-items: center;
 	height: 400px;
-	/*border: blue 1px solid;*/
+	
 
 }
 

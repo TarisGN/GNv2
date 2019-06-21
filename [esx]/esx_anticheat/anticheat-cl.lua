@@ -106,24 +106,24 @@ Citizen.CreateThread(function()
 end)
 
 --[[ SUPERJUMP CHECK ]]--
-Citizen.CreateThread(function()
-	while true do
-		Wait(0)
-		if (AntiCheat == true and whitelisted == false and whiteCheck == false) then
-			if IsPedJumping(PlayerPedId()) then
-				local firstCoord = GetEntityCoords(GetPlayerPed(-1))
-				while IsPedJumping(PlayerPedId()) do
-					Wait (0)
-				end
-				local secondCoord = GetEntityCoords(GetPlayerPed(-1))
-				local jumplength = GetDistanceBetweenCoords(firstCoord, secondCoord, false)
-				if jumplength > 10.0 then
-					print('You triggered superjump')
-					TriggerServerEvent('AntiCheat:Jump', jumplength )
-				end
-			end
-		end
-	end
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		Wait(0)
+-- 		if (AntiCheat == true and whitelisted == false and whiteCheck == false) then
+-- 			if IsPedJumping(PlayerPedId()) then
+-- 				local firstCoord = GetEntityCoords(GetPlayerPed(-1))
+-- 				while IsPedJumping(PlayerPedId()) do
+-- 					Wait (0)
+-- 				end
+-- 				local secondCoord = GetEntityCoords(GetPlayerPed(-1))
+-- 				local jumplength = GetDistanceBetweenCoords(firstCoord, secondCoord, false)
+-- 				if jumplength > 10.0 then
+-- 					print('You triggered superjump')
+-- 					TriggerServerEvent('AntiCheat:Jump', jumplength )
+-- 				end
+-- 			end
+-- 		end
+-- 	end
 	--[[while true do
 		Citizen.Wait(0)
 		if (AntiCheat == true and whitelisted == false and whiteCheck == false)then

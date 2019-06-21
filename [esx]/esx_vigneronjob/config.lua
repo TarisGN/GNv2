@@ -8,7 +8,7 @@ Config.Locale                     = 'fr'
 Config.Zones = {
 
 	RaisinFarm = {
-		Pos   = {x = -1809.662, y = 2210.119, z = 90.681},
+		Pos   = {x = -2231.34, y = 2413.97, z = -990.681},
 		Size  = {x = 3.5, y = 3.5, z = 2.0},
 		Color = {r = 136, g = 243, b = 216},
 		Name  = "Récolte de raisin",
@@ -37,6 +37,14 @@ Config.Zones = {
 		Size  = {x = 3.5, y = 3.5, z = 2.0},
 		Color = {r = 136, g = 243, b = 216},
 		Name  = "Vente des produits",
+		Type  = 1
+	},
+
+	SellFarm2 = {
+		Pos   = {x = -158.737, y = -54.651, z = 53.396},
+		Size  = {x = 3.5, y = 3.5, z = 2.0},
+		Color = {r = 136, g = 243, b = 216},
+		Name  = "Vente des produits de luxe",
 		Type  = 1
 	},
 
@@ -74,3 +82,32 @@ Config.Zones = {
 
 }
 
+Config.Cig = {
+  'vine',
+  'jus_raisin'
+}
+
+Config.CigResellChances = {
+  vine = 45,
+  jus_raisin = 25,
+}
+
+Config.CigResellQuantity= {
+  vine = {min = 5, max = 10},
+  jus_raisin = {min = 5, max = 10},
+}
+
+Config.CigPrices = {
+  vine = {min = 15, max = 10},
+  jus_raisin = {min = 15,   max = 15},
+}
+
+Config.CigPricesHigh = {
+  vine = {min = 45, max = 10},
+  jus_raisin = {min = 35,   max = 15},
+}
+
+Config.Time = {
+  vine = 5 * 60,
+  jus_raisin = 5 * 60,
+}

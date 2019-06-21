@@ -141,6 +141,99 @@ AddEventHandler('esx_vigneronjob:stopTransform', function()
 	end
 end)
 
+RegisterServerEvent('esx_vigneronjob:pedBuyCig')
+AddEventHandler('esx_vigneronjob:pedBuyCig', function()
+  
+  local _source       = source
+  local xPlayer       = ESX.GetPlayerFromId(_source)
+  local resellChances = {}
+  local cigTypeMagic  = math.random(0, 100)
+  local chosenCig     = nil
+  local prices        = nil
+
+  if highPrice then
+    prices = Config.CigPricesHigh
+  else
+    prices = Config.CigPrices
+  end
+
+  for k,v in pairs(Config.CigResellChances) do
+    table.insert(resellChances, {cig = k, chance = v})
+  end
+
+  table.sort(resellChances, function(a, b)
+    return a.chance < b.chance
+  end)
+
+  local count = 0
+
+  for i=1, #resellChances, 1 do
+    
+    count = count + resellChances[i].chance
+
+    if cigTypeMagic <= count then
+      chosenCig = resellChances[i].cig
+      break
+    end
+
+  end
+
+  local pricePerUnit = randomFloat(prices[chosenCig].min, prices[chosenCig].max)
+  local quantity     = math.random(Config.CigResellQuantity[chosenCig].min, Config.CigResellQuantity[chosenCig].max)
+  local item         = xPlayer.getInventoryItem(chosenCig)
+  local societyAccount  = nil
+
+  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_vigne', function(account)
+    societyAccount = account
+  end)
+
+  if item.count > 0 then
+
+    if item.count < quantity then
+
+      local price = math.floor(item.count * pricePerUnit)
+
+      xPlayer.removeInventoryItem(chosenCig, item.count)
+      societyAccount.addMoney(price)
+      
+      TriggerClientEvent('esx:showNotification', _source, 'Vous avez gagné ~g~$' .. price .. '~s~ pour ~y~x' .. item.count .. ' ' .. item.label)
+    else
+
+      local price = math.floor(quantity * pricePerUnit)
+
+      xPlayer.removeInventoryItem(chosenCig, quantity)
+      societyAccount.addMoney(price)
+
+      TriggerClientEvent('esx:showNotification', _source, 'Vous avez gagné ~g~$' .. price .. '~s~ pour ~y~x' .. quantity .. ' ' .. item.label)
+    end
+
+  else
+    TriggerClientEvent('esx:showNotification', _source, 'Vous n\'avez pas les bouteilles [' .. item.label .. ']')
+  end
+
+end)
+
+RegisterServerEvent('esx_vigneronjob:pedCallPolice')
+AddEventHandler('esx_vigneronjob:pedCallPolice', function()
+    
+    local _source = source
+    local xPlayer = ESX.GetPlayerFromId(_source)
+
+    local xPlayers = ESX.GetPlayers()
+
+    for i=1, #xPlayers, 1 do
+
+        local xPlayer2 = ESX.GetPlayerFromId(xPlayers[i])
+            
+        if xPlayer2.job.name == 'crypted' then
+            TriggerClientEvent('esx_cryptedphone:onMessage', xPlayer2.source, '', 'Une personne a essayé de me vendre des trucs', xPlayer.get('coords'), true, 'Alerte Moldu', false)
+        end
+    end
+end)
+
+
+
+
 local function Sell(source, zone)
 
 	if PlayersSelling[source] == true then
@@ -173,7 +266,7 @@ local function Sell(source, zone)
 			else
 				if (jus == 1) then
 					SetTimeout(1100, function()
-						local money = math.random(18,25)
+						local money = math.random(85,105)
 						xPlayer.removeInventoryItem('jus_raisin', 1)
 						local societyAccount = nil
 
@@ -188,7 +281,7 @@ local function Sell(source, zone)
 					end)
 				elseif (vine == 1) then
 					SetTimeout(1100, function()
-						local money = math.random(30,35)
+						local money = math.random(120,180)
 						xPlayer.removeInventoryItem('vine', 1)
 						local societyAccount = nil
 
@@ -301,6 +394,3 @@ ESX.RegisterServerCallback('esx_vigneronjob:getPlayerInventory', function(source
 	})
 
 end)
-
-
-

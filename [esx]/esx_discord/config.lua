@@ -6,16 +6,16 @@ Config.red 					  = 16711680
 Config.orange 				  = 16744192
 Config.blue 				  = 2061822
 Config.purple 				  = 11750815
-Config.webhook                = "https://discordapp.com/api/webhooks/572010716282880021/WThwD33tSCinGslnsFGchf68PqaQIzwb3f2c6roMIv-E5H1ZeaEtnmepr3YvMf9WxQlM"
+Config.webhook                = "https://discordapp.com/api/webhooks/578149654022062100/BMcLJ7zO6USaSp5-TqTMddQ7UC0Lxg5_2RkYTNJLQlLuRZU0GXkx8Qq9e9IcPmTgNHhU"
 
 
 settings = {
-	LogKills = true, -- Log when a player kill an other player.
+	LogKills = false, -- Log when a player kill an other player.
 	LogEnterPoliceVehicle = true, -- Log when an player enter in a police vehicle.
 	LogEnterBlackListedVehicle = true, -- Log when a player enter in a blacklisted vehicle.
 	LogPedJacking = true, -- Log when a player is jacking a car
-	LogChatServer = true, -- Log when a player is talking in the chat , /command works too.
-	LogLoginServer = true, -- Log when a player is connecting/disconnecting to the server.
+	LogChatServer = false, -- Log when a player is talking in the chat , /command works too.
+	LogLoginServer = false, -- Log when a player is connecting/disconnecting to the server.
 	LogItemTransfer = true, -- Log when a player is giving an item.
 	LogWeaponTransfer = true, -- Log when a player is giving a weapon.
 	LogMoneyTransfer = true, -- Log when a player is giving money
@@ -35,5 +35,5 @@ blacklistedModels = {
 	"SAVAGE",
 	"TITAN",
 	"LAZER",
-	"LAZER",
+	
 }

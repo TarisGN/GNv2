@@ -1,15 +1,15 @@
 --Settings--
 ESX = nil
---[[ Optional SocietyAccount ( You have to implement it )
+--[[ Optional SocietyAccount ( You have to implement it )--]]
 local societyAccount = nil
  TriggerEvent('esx_addonaccount:getSharedAccount', 'society_mecano', function(account)
     societyAccount = account
  end)
-]]
+
 enableprice = true -- [Keep this true]
 --[[  Prices  ]]
-local price = 500 --- Regular Price if you change this be sure to change the price in line
-local qprice = 2000 -- Premium Price if you change this be sure to change the price in line
+local price = 250 --- Regular Price if you change this be sure to change the price in line
+local qprice = 1000 -- Premium Price if you change this be sure to change the price in line
 
 --[[ 
 	DO NOT EDIT THIS CODE BELOW!
@@ -24,7 +24,7 @@ AddEventHandler('Civrepair:checkmoney', function()
 			if(xPlayer.getMoney() >= price) then
 				xPlayer.removeMoney(price)
 				TriggerClientEvent('Civrepair:success', mysource, price)
-				
+				societyAccount.addMoney(price)
 			else
 				moneyleft = price - xPlayer.getMoney()
 				TriggerClientEvent('Civrepair:notenoughmoney', mysource, moneyleft)

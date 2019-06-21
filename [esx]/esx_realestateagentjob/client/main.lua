@@ -33,6 +33,8 @@ function OpenRealestateAgentMenu()
   local elements = {
     {label = _U('properties'), value = 'properties'},
     {label = _U('clients'),    value = 'customers'},
+    {label = _U('deposit_stock'), value = 'put_stock'},
+		{label = _U('take_stock'), value = 'get_stock'}
   }
 
   if PlayerData.job ~= nil and PlayerData.job.name == 'realestateagent' and PlayerData.job.grade_name == 'boss' then
@@ -57,6 +59,13 @@ function OpenRealestateAgentMenu()
         OpenCustomersMenu()
       end
 
+    if data.current.value == 'put_stock' then
+      OpenPutStocksMenu()
+    end
+		if data.current.value == 'get_stock' then
+      OpenGetStocksMenu()
+    end
+
       if data.current.value == 'boss_actions' then
         TriggerEvent('esx_society:openBossMenu', 'realestateagent', function(data, menu)
           menu.close()
@@ -76,6 +85,63 @@ function OpenRealestateAgentMenu()
   )
 
 end
+
+
+function OpenVaultMenu()
+
+  if Config.EnableVaultManagement then
+
+    local elements = {
+      {label = _U('get_weapon'), value = 'get_weapon'},
+      {label = _U('put_weapon'), value = 'put_weapon'},
+      {label = _U('get_object'), value = 'get_stock'},
+      {label = _U('put_object'), value = 'put_stock'}
+    }
+    
+
+    ESX.UI.Menu.CloseAll()
+
+    ESX.UI.Menu.Open(
+      'default', GetCurrentResourceName(), 'vault',
+      {
+        title    = _U('vault'),
+        align    = 'top-left',
+        elements = elements,
+      },
+      function(data, menu)
+
+        if data.current.value == 'get_weapon' then
+          OpenGetWeaponMenu()
+        end
+
+        if data.current.value == 'put_weapon' then
+          OpenPutWeaponMenu()
+        end
+
+        if data.current.value == 'put_stock' then
+           OpenPutStocksMenu()
+        end
+
+        if data.current.value == 'get_stock' then
+           OpenGetStocksMenu()
+        end
+
+      end,
+      
+      function(data, menu)
+
+        menu.close()
+
+        CurrentAction     = 'menu_vault'
+        CurrentActionMsg  = _U('open_vault')
+        CurrentActionData = {}
+      end
+    )
+
+  end
+
+end
+
 
 function OpenPropertyMenu()
 
@@ -300,6 +366,13 @@ AddEventHandler('esx_realestateagentjob:hasEnteredMarker', function(zone)
     SetEntityCoords(playerPed,  Config.Zones.OfficeOutside.Pos.x,  Config.Zones.OfficeOutside.Pos.y,  Config.Zones.OfficeOutside.Pos.z)
   end
 
+  if zone == 'Vaults' and PlayerData.job ~= nil and PlayerData.job.name == 'realestateagent' then
+        CurrentAction     = 'menu_vault'
+        CurrentActionMsg  = _U('open_vault')
+        CurrentActionData = {}
+   end
+   
+
   if zone == 'OfficeActions' and PlayerData.job ~= nil and PlayerData.job.name == 'realestateagent' then
     CurrentAction     = 'realestateagent_menu'
     CurrentActionMsg  = _U('press_to_access')
@@ -325,6 +398,93 @@ AddEventHandler('esx_phone:loaded', function(phoneNumber, contacts)
   TriggerEvent('esx_phone:addSpecialContact', specialContact.name, specialContact.number, specialContact.base64Icon)
 
 end)
+
+function OpenGetStocksMenu()
+	ESX.TriggerServerCallback('esx_realestateagentjob:getStockItems', function (items)
+		local elements = {}
+
+		for i=1, #items, 1 do
+			table.insert(elements, {
+				label = 'x' .. items[i].count .. ' ' .. items[i].label,
+				value = items[i].name
+			})
+		end
+
+		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			title    = _U('dealership_stock'),
+			align    = 'top-left',
+			elements = elements
+		}, function (data, menu)
+			local itemName = data.current.value
+
+			ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'stocks_menu_get_item_count', {
+				title = _U('amount')
+			}, function (data2, menu2)
+				local count = tonumber(data2.value)
+
+				if count == nil then
+					ESX.ShowNotification(_U('quantity_invalid'))
+				else
+					TriggerServerEvent('esx_realestateagentjob:getStockItem', itemName, count)
+					menu2.close()
+					menu.close()
+					OpenGetStocksMenu()
+				end
+			end, function (data2, menu2)
+				menu2.close()
+			end)
+
+		end, function (data, menu)
+			menu.close()
+		end)
+	end)
+end
+
+function OpenPutStocksMenu()
+	ESX.TriggerServerCallback('esx_realestateagentjob:getPlayerInventory', function (inventory)
+		local elements = {}
+
+		for i=1, #inventory.items, 1 do
+			local item = inventory.items[i]
+
+			if item.count > 0 then
+				table.insert(elements, {
+					label = item.label .. ' x' .. item.count,
+					type = 'item_standard',
+					value = item.name
+				})
+			end
+		end
+
+		ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'stocks_menu', {
+			title    = _U('inventory'),
+			align    = 'top-left',
+			elements = elements
+		}, function (data, menu)
+			local itemName = data.current.value
+
+			ESX.UI.Menu.Open('dialog', GetCurrentResourceName(), 'stocks_menu_put_item_count', {
+				title = _U('amount')
+			}, function (data2, menu2)
+				local count = tonumber(data2.value)
+
+				if count == nil then
+					ESX.ShowNotification(_U('quantity_invalid'))
+				else
+					TriggerServerEvent('esx_realestateagentjob:putStockItems', itemName, count)
+					menu2.close()
+					menu.close()
+					OpenPutStocksMenu()
+				end
+			end, function (data2, menu2)
+				menu2.close()
+			end)
+		end, function (data, menu)
+			menu.close()
+		end)
+	end)
+end
+
 
 -- Create Blips
 Citizen.CreateThread(function()
@@ -409,6 +569,10 @@ Citizen.CreateThread(function()
           OpenRealestateAgentMenu()
         end
 
+      if CurrentAction == 'menu_vault' then
+            OpenVaultMenu()
+        end
+
         CurrentAction = nil
         GUI.Time      = GetGameTimer()
 
@@ -418,6 +582,84 @@ Citizen.CreateThread(function()
 
   end
 end)
+
+
+function OpenGetWeaponMenu()
+
+  ESX.TriggerServerCallback('esx_realestateagentjob:getVaultWeapons', function(weapons)
+
+    local elements = {}
+
+    for i=1, #weapons, 1 do
+      if weapons[i].count > 0 then
+        table.insert(elements, {label = 'x' .. weapons[i].count .. ' ' .. ESX.GetWeaponLabel(weapons[i].name), value = weapons[i].name})
+      end
+    end
+
+    ESX.UI.Menu.Open(
+      'default', GetCurrentResourceName(), 'vault_get_weapon',
+      {
+        title    = _U('get_weapon_menu'),
+        align    = 'top-left',
+        elements = elements,
+      },
+      function(data, menu)
+
+        menu.close()
+
+        ESX.TriggerServerCallback('esx_realestateagentjob:removeVaultWeapon', function()
+          OpenGetWeaponMenu()
+        end, data.current.value)
+
+      end,
+      function(data, menu)
+        menu.close()
+      end
+    )
+
+  end)
+
+end
+
+function OpenPutWeaponMenu()
+
+  local elements   = {}
+  local playerPed  = GetPlayerPed(-1)
+  local weaponList = ESX.GetWeaponList()
+
+  for i=1, #weaponList, 1 do
+
+    local weaponHash = GetHashKey(weaponList[i].name)
+
+    if HasPedGotWeapon(playerPed,  weaponHash,  false) and weaponList[i].name ~= 'WEAPON_UNARMED' then
+      local ammo = GetAmmoInPedWeapon(playerPed, weaponHash)
+      table.insert(elements, {label = weaponList[i].label, value = weaponList[i].name})
+    end
+
+  end
+
+  ESX.UI.Menu.Open(
+    'default', GetCurrentResourceName(), 'vault_put_weapon',
+    {
+      title    = _U('put_weapon_menu'),
+      align    = 'top-left',
+      elements = elements,
+    },
+    function(data, menu)
+
+      menu.close()
+
+      ESX.TriggerServerCallback('esx_realestateagentjob:addVaultWeapon', function()
+        OpenPutWeaponMenu()
+      end, data.current.value)
+
+    end,
+    function(data, menu)
+      menu.close()
+    end
+  )
+
+end
 
 -- Load IPLS
 Citizen.CreateThread(function()

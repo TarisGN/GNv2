@@ -80,7 +80,7 @@ Config.Zones = {
 	ItemRequires = "contrat",
 	ItemRequires_name = "Facture",
 	ItemDrop = 100,
-	ItemPrice  = 50,
+	ItemPrice  = 520,
 	hint = 'Appuyez sur ~INPUT_CONTEXT~ pour encaisser vos factures',
   },
 

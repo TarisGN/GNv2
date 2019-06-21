@@ -16,6 +16,7 @@ files {
 	'html/ui.html',
 	'html/app.js',
 	'html/style.css',
+	'font/GoodBrush.ttf',
 	'font/edosz.ttf',
 	'img/header.png',
 	'img/blank.png',

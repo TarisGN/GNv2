@@ -13,6 +13,12 @@ Keys = {
 ESX = nil
 local menuOpen = false
 local wasOpen = false
+local menuOpen2 = false
+local wasOpen2 = false
+local menuOpen3 = false
+local wasOpen3 = false
+local PlayerData              = {}
+
 
 Citizen.CreateThread(function()
 	while ESX == nil do
@@ -47,6 +53,7 @@ Citizen.CreateThread(function()
 		else
 			if wasOpen then
 				wasOpen = false
+				menuOpen = false
 				ESX.UI.Menu.CloseAll()
 			end
 
@@ -142,9 +149,236 @@ end
 
 
 
-Citizen.CreateThread(function()
-	for k,zone in pairs(Config.CircleZones) do
+-- Citizen.CreateThread(function()
+-- 	for k,zone in pairs(Config.CircleZones) do
 
-		CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
+-- 		CreateBlipCircle(zone.coords, zone.name, zone.radius, zone.color, zone.sprite)
+-- 	end
+-- end)
+
+--COKE DEAL
+
+--CLIENT
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(0)
+		local playerPed = PlayerPedId()
+		local coords = GetEntityCoords(playerPed)
+
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.DrugDealer2.coords, true) < 0.5 then
+			if not menuOpen2 then
+				ESX.ShowHelpNotification(_U('dealer_prompt2'))
+
+				if IsControlJustReleased(0, Keys['E']) then
+					wasOpen2 = true
+					OpenDrugShop2()
+				end
+			else
+				Citizen.Wait(500)
+			end
+		else
+			if wasOpen2 then
+				wasOpen2 = false
+				menuOpen2 = false
+				ESX.UI.Menu.CloseAll()
+			end
+
+			Citizen.Wait(500)
+		end
+	end
+end)
+
+function OpenDrugShop2()
+	ESX.UI.Menu.CloseAll()
+	local elements = {}
+	menuOpen2 = true
+
+	for k, v in pairs(ESX.GetPlayerData().inventory) do
+		local price = Config.DrugDealerItems2[v.name]
+
+		if price and v.count > 0 then
+			table.insert(elements, {
+				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('dealer_item2', ESX.Math.GroupDigits(price))),
+				name = v.name,
+				price = price,
+
+				-- menu properties
+				type = 'slider',
+				value = 1,
+				min = 1,
+				max = v.count
+			})
+		end
+	end
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'drug_shop2', {
+		title    = _U('dealer_title2'),
+		align    = 'top-left',
+		elements = elements
+	}, function(data, menu)
+		TriggerServerEvent('esx_drugs:sellDrug2', data.current.name, data.current.value)
+	end, function(data, menu)
+		menu.close()
+		menuOpen2 = false
+	end)
+end
+
+AddEventHandler('onResourceStop', function(resource)
+	if resource == GetCurrentResourceName() then
+		if menuOpen2 then
+			ESX.UI.Menu.CloseAll()
+		end
+	end
+end)
+
+
+-- DEALER CAISSES 
+
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(0)
+		local playerPed = PlayerPedId()
+		local coords = GetEntityCoords(playerPed)
+
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.DrugDealer3.coords, true) < 0.5 then
+			if not menuOpen3 then
+				ESX.ShowHelpNotification(_U('dealer_prompt3'))
+
+				if IsControlJustReleased(0, Keys['E']) then
+					wasOpen3 = true
+					OpenDrugShop3()
+				end
+			else
+				Citizen.Wait(500)
+			end
+		else
+			if wasOpen3 then
+				wasOpen3 = false
+				menuOpen3 = false
+				ESX.UI.Menu.CloseAll()
+			end
+
+			Citizen.Wait(500)
+		end
+	end
+end)
+
+function OpenDrugShop3()
+	ESX.UI.Menu.CloseAll()
+	local elements = {}
+	menuOpen3 = true
+
+	for k, v in pairs(ESX.GetPlayerData().inventory) do
+		local price = Config.DrugDealerItems3[v.name]
+
+		if price and v.count > 0 then
+			table.insert(elements, {
+				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('dealer_item3', ESX.Math.GroupDigits(price))),
+				name = v.name,
+				price = price,
+
+				-- menu properties
+				type = 'slider',
+				value = 1,
+				min = 1,
+				max = v.count
+			})
+		end
+	end
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'drug_shop3', {
+		title    = _U('dealer_title3'),
+		align    = 'top-left',
+		elements = elements
+	}, function(data, menu)
+		TriggerServerEvent('esx_drugs:sellDrug3', data.current.name, data.current.value)
+	end, function(data, menu)
+		menu.close()
+		menuOpen3 = false
+	end)
+end
+
+AddEventHandler('onResourceStop', function(resource)
+	if resource == GetCurrentResourceName() then
+		if menuOpen3 then
+			ESX.UI.Menu.CloseAll()
+		end
+	end
+end)
+
+-- DEALER FERRAILLE-
+
+
+Citizen.CreateThread(function()
+	while true do
+		Citizen.Wait(0)
+		local playerPed = PlayerPedId()
+		local coords = GetEntityCoords(playerPed)
+
+		if GetDistanceBetweenCoords(coords, Config.CircleZones.DrugDealer4.coords, true) < 0.5 then
+			if not menuOpen4 then
+				ESX.ShowHelpNotification(_U('dealer_prompt4'))
+
+				if IsControlJustReleased(0, Keys['E']) then
+					wasOpen4 = true
+					OpenDrugShop4()
+				end
+			else
+				Citizen.Wait(500)
+			end
+		else
+			if wasOpen4 then
+				wasOpen4 = false
+				menuOpen4 = false
+				ESX.UI.Menu.CloseAll()
+			end
+
+			Citizen.Wait(500)
+		end
+	end
+end)
+
+function OpenDrugShop4()
+	ESX.UI.Menu.CloseAll()
+	local elements = {}
+	menuOpen4 = true
+
+	for k, v in pairs(ESX.GetPlayerData().inventory) do
+		local price = Config.DrugDealerItems4[v.name]
+
+		if price and v.count > 0 then
+			table.insert(elements, {
+				label = ('%s - <span style="color:green;">%s</span>'):format(v.label, _U('dealer_item4', ESX.Math.GroupDigits(price))),
+				name = v.name,
+				price = price,
+
+				-- menu properties
+				type = 'slider',
+				value = 1,
+				min = 1,
+				max = v.count
+			})
+		end
+	end
+
+	ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'drug_shop4', {
+		title    = _U('dealer_title4'),
+		align    = 'top-left',
+		elements = elements
+	}, function(data, menu)
+		TriggerServerEvent('esx_drugs:sellDrug4', data.current.name, data.current.value)
+	end, function(data, menu)
+		menu.close()
+		menuOpen4 = false
+	end)
+end
+
+AddEventHandler('onResourceStop', function(resource)
+	if resource == GetCurrentResourceName() then
+		if menuOpen4 then
+			ESX.UI.Menu.CloseAll()
+		end
 	end
 end)

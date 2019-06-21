@@ -54,7 +54,7 @@ function LoadSellPlace()
 		SetBlipColour (Blip, 52)
 		SetBlipAsShortRange(Blip, true)
 		BeginTextCommandSetBlipName("STRING")
-		AddTextComponentString("Used Cars")
+		AddTextComponentString("Voitures d'Occasion")
 		EndTextCommandSetBlipName(Blip)
 
 		while true do
@@ -69,12 +69,12 @@ function LoadSellPlace()
 				sleepThread = 5
 
 				if dstCheck <= 4.2 then
-					ESX.Game.Utils.DrawText3D(SellPos, "[E] Open Menu", 0.4)
+					ESX.Game.Utils.DrawText3D(SellPos, "[E] Ouvrir MENU", 0.4)
 					if IsControlJustPressed(0, 38) then
 						if IsPedInAnyVehicle(ped, false) then
 							OpenSellMenu(GetVehiclePedIsUsing(ped))
 						else
-							ESX.ShowNotification("You must sit in a ~g~vehicle")
+							ESX.ShowNotification("Vous devez être assis dans un ~g~véhicule")
 						end
 					end
 				end
@@ -90,13 +90,13 @@ function LoadSellPlace()
 					if dstCheck <= 2.0 then
 						sleepThread = 5
 
-						ESX.Game.Utils.DrawText3D(vehCoords, "[E] " .. Config.VehiclePositions[i]["price"] .. ":-", 0.4)
+						ESX.Game.Utils.DrawText3D(vehCoords, "[E] " .. Config.VehiclePositions[i]["price"] .. "$", 0.4)
 
 						if IsControlJustPressed(0, 38) then
 							if IsPedInVehicle(ped, Config.VehiclePositions[i]["entityId"], false) then
 								OpenSellMenu(Config.VehiclePositions[i]["entityId"], Config.VehiclePositions[i]["price"], true, Config.VehiclePositions[i]["owner"])
 							else
-								ESX.ShowNotification("You must sit in the ~g~vehicle~s~!")
+								ESX.ShowNotification("VOus devez vous asseoir dans le ~g~véhicule~s~!")
 							end
 						end
 					end
@@ -113,16 +113,16 @@ function OpenSellMenu(veh, price, buyVehicle, owner)
 
 	if not buyVehicle then
 		if price ~= nil then
-			table.insert(elements, { ["label"] = "Change Price - " .. price .. " :-", ["value"] = "price" })
+			table.insert(elements, { ["label"] = "Changer le prix - " .. price .. " :-", ["value"] = "price" })
 			table.insert(elements, { ["label"] = "Put out for sale", ["value"] = "sell" })
 		else
-			table.insert(elements, { ["label"] = "Set Price - :-", ["value"] = "price" })
+			table.insert(elements, { ["label"] = "Régler prix - :-", ["value"] = "price" })
 		end
 	else
-		table.insert(elements, { ["label"] = "Buy " .. price .. " - :-", ["value"] = "buy" })
+		table.insert(elements, { ["label"] = "Acheter " .. price .. " - :-", ["value"] = "buy" })
 
 		if owner then
-			table.insert(elements, { ["label"] = "Remove Vehicle", ["value"] = "remove" })
+			table.insert(elements, { ["label"] = "Enlever véhicule", ["value"] = "remove" })
 		end
 	end
 
@@ -158,10 +158,10 @@ function OpenSellMenu(veh, price, buyVehicle, owner)
 
 				if valid then
 					DeleteVehicle(veh)
-					ESX.ShowNotification("You put out the ~g~vehicle~s~ for sale - " .. price .. " :-")
+					ESX.ShowNotification("Vous mettez le ~g~vehicule~s~ en vente - " .. price .. " $")
 					menu.close()
 				else
-					ESX.ShowNotification("You must ~r~own~s~ the ~g~vehicle!~s~ / it's ~r~already~s~ " .. #Config.VehiclePositions .. " vehicles for sale!")
+					ESX.ShowNotification("Vous devez ~r~posseder~s~ le ~g~vehicule!~s~ / Il est ~r~déjà~s~ " .. #Config.VehiclePositions .. " en vente!")
 				end
 	
 			end, vehProps, price)
@@ -169,17 +169,17 @@ function OpenSellMenu(veh, price, buyVehicle, owner)
 			ESX.TriggerServerCallback("esx-qalle-sellvehicles:buyVehicle", function(isPurchasable, totalMoney)
 				if isPurchasable then
 					DeleteVehicle(veh)
-					ESX.ShowNotification("You ~g~bought~s~ the vehicle for " .. price .. " :-")
+					ESX.ShowNotification("Vous ~g~Achetez~s~ le véhicule pour " .. price .. " $")
 					menu.close()
 				else
-					ESX.ShowNotification("You ~r~don't~s~ have enough cash, it's missing " .. price - totalMoney .. " :-")
+					ESX.ShowNotification("Vous n' ~r~avez pas assez~s~ d'argent, il manque " .. price - totalMoney .. " $ ")
 				end
 			end, ESX.Game.GetVehicleProperties(veh), price)
 		elseif action == "remove" then
 			ESX.TriggerServerCallback("esx-qalle-sellvehicles:buyVehicle", function(isPurchasable, totalMoney)
 				if isPurchasable then
 					DeleteVehicle(veh)
-					ESX.ShowNotification("You ~g~removed~s~ the vehicle")
+					ESX.ShowNotification("Vous ~g~enlevez~s~ le véhicule")
 					menu.close()
 				end
 			end, ESX.Game.GetVehicleProperties(veh), 0)

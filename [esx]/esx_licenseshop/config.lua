@@ -13,13 +13,13 @@ Config.BlipLicenseShop = {
 	Scale = 1.0
 }
 
-Config.AircraftLicensePrice = 25000
-Config.BoatingLicensePrice = 1000
-Config.CommercialLicensePrice = 6000
+Config.AircraftLicensePrice = 125000
+Config.BoatingLicensePrice = 21000
+Config.CommercialLicensePrice = 80000
 Config.DriversLicensePrice = 3000
 Config.MotorcyleLicensePrice = 4500
 Config.WeaponLicensePrice = 25000
-Config.WeedLicensePrice = 50000
+--Config.WeedLicensePrice = 50000
 
 Config.EnableUnemployedOnly = true -- If true it will only show Blips to Unemployed Players | false shows it to Everyone.
 Config.EnableBlips = true -- If true then it will show blips | false does the Opposite.

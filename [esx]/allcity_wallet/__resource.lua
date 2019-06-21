@@ -9,6 +9,7 @@ files {
 	'html/style.css',
 	'html/app.js',
 	'html/font/edosz.ttf',
+	'html/font/GoodBrush.ttf',
 	'html/img/bg/moon.png',
 	'html/img/icon_money/bank.png',
 	'html/img/icon_money/gold.png',

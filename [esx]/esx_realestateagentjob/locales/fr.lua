@@ -20,4 +20,21 @@ Locales['fr'] = {
   ['realtors'] = 'agents Immobilier',
   ['client'] = 'Client immo',
   ['boss_action'] = 'action Patron',
+  ['deposit_stock']                   = 'déposer Stock',
+  ['take_stock']                      = 'prendre Stock',
+  ['dealership_stock']                = 'Stock Agence',
+  ['amount']                          = 'quantité',
+  ['quantity_invalid']                = 'quantité invalide',
+  ['inventory']                       = 'inventaire',
+ -- Vault  
+ ['get_weapon']               = 'Prendre Arme',
+ ['put_weapon']               = 'Déposer Arme',
+ ['get_weapon_menu']          = 'Coffre - Prendre Arme',
+ ['put_weapon_menu']          = 'Coffre - Déposer Arme',
+ ['get_object']               = 'Prendre Objet',
+ ['put_object']               = 'Déposer Objet',
+ ['vault']                    = 'Coffre',
+ ['open_vault']               = 'Appuyez sur ~INPUT_CONTEXT~ pour accéder au coffre',
+
+
 }

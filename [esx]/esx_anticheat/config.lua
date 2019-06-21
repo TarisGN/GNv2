@@ -1,13 +1,15 @@
 Config = {}
 
-Config.Locale = 'fr'
+Config.Locale = 'en'
 
 Config.whitelist = {
-	'steam:110000100ae48a3'
+	'steam:1100001041fef0b',
+	'steam:1100001014304e8',
+	'steam:110000102cdef27'
 }
 
 -- How many peds before we start deleting?
-Config.pedThreshold = 100
+Config.pedThreshold = 1000
 
 --GENERAL
 Config.permission        = "admin" --Permission needed to use ban commands (mod-admin-superadmin)
@@ -16,8 +18,8 @@ Config.permission        = "admin" --Permission needed to use ban commands (mod-
 --WEBHOOK
 Config.Discord				= 'https://discord.gg/Wm6neGW'
 Config.EnableDiscordLink = true -- only turn this on if you want link the log to a discord
-Config.webhookban        = "https://discordapp.com/api/webhooks/571393471911297025/TVpwoHvkPBYeIXdp5POemTazApZC7O2WiJOrmCJRYxO9JhR3svNp1-53plhhVjqrYYeY"
-Config.webhookunban      = "https://discordapp.com/api/webhooks/571393471911297025/TVpwoHvkPBYeIXdp5POemTazApZC7O2WiJOrmCJRYxO9JhR3svNp1-53plhhVjqrYYeY"
+Config.webhookban        = "https://discordapp.com/api/webhooks/578149654022062100/BMcLJ7zO6USaSp5-TqTMddQ7UC0Lxg5_2RkYTNJLQlLuRZU0GXkx8Qq9e9IcPmTgNHhU"
+Config.webhookunban      = "https://discordapp.com/api/webhooks/578149654022062100/BMcLJ7zO6USaSp5-TqTMddQ7UC0Lxg5_2RkYTNJLQlLuRZU0GXkx8Qq9e9IcPmTgNHhU"
 Config.green             = 56108
 Config.grey              = 8421504
 Config.red               = 16711680
@@ -26,19 +28,7 @@ Config.blue              = 2061822
 Config.purple            = 11750815
 
 Config.CarsBL = {
-	"vigilante",
-	"hydra",
-	"buzzard",
-	"deluxo",
-	"avenger",
-	"akula",
-	"apc",
-	"barrage",
-	"caracara",
-	"cargobob",
-	"chernobog",
 	"hunter",
-	"insurgent",
 	"starling",
 	"lazer",
 	"bombushka",

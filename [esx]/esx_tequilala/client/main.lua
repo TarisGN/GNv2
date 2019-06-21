@@ -445,22 +445,26 @@ function OpenSocietyActionsMenu()
           ESX.UI.Menu.Open(
               'default', GetCurrentResourceName(), 'menu_crafting',
               {
-                  title = _U('crafting'),
+                   title = _U('crafting'),
                   align = 'top-left',
                   elements = {
-                      {label = _U('jagerbomb'),     value = 'jagerbomb'},
-                      {label = _U('golem'),         value = 'golem'},
+                      {label = _U('debalbiere'),     value = 'caissebiere'},
+                      {label = _U('debalwhisky'),         value = 'caissewhisky'},
+                      {label = _U('debalvodka'),         value = 'caissevodka'},
+                      {label = _U('debalsake'),         value = 'caissesake'},
+                      {label = _U('debalsoda'),         value = 'caissesoda'},
+                      {label = _U('debalenergy'),         value = 'caisseenergy'},
                       {label = _U('whiskycoca'),    value = 'whiskycoca'},
                       {label = _U('vodkaenergy'),   value = 'vodkaenergy'},
-                      {label = _U('vodkafruit'),    value = 'vodkafruit'},
-                      {label = _U('rhumfruit'),     value = 'rhumfruit'},
-                      {label = _U('teqpaf'),        value = 'teqpaf'},
-                      {label = _U('rhumcoca'),      value = 'rhumcoca'},
-                      {label = _U('mojito'),        value = 'mojito'},
+                      --{label = _U('vodkafruit'),    value = 'vodkafruit'},
+                      --{label = _U('rhumfruit'),     value = 'rhumfruit'},
+                      --{label = _U('teqpaf'),        value = 'teqpaf'},
+                     -- {label = _U('rhumcoca'),      value = 'rhumcoca'},
+                      --{label = _U('mojito'),        value = 'mojito'},
                       {label = _U('mixapero'),      value = 'mixapero'},
-                      {label = _U('metreshooter'),  value = 'metreshooter'},
-                      {label = _U('jagercerbere'),  value = 'jagercerbere'},
-                  }
+                      --{label = _U('metreshooter'),  value = 'metreshooter'},
+                     -- {label = _U('jagercerbere'),  value = 'jagercerbere'},
+                                    }
               },
               function(data2, menu2)
             
@@ -910,6 +914,12 @@ AddEventHandler('esx_tequilalajob:hasEnteredMarker', function(zone)
       CurrentActionData = {}
     end
 
+if zone == 'SellFarm' and PlayerData.job ~= nil and PlayerData.job.name == 'tequilala'  then
+    CurrentAction     = 'farm_resell'
+    CurrentActionMsg  = _U('press_sell')
+    CurrentActionData = {zone = zone}
+  end
+
     if zone == 'Cloakrooms' then
       CurrentAction     = 'menu_cloakroom'
       CurrentActionMsg  = _U('open_cloackroom')
@@ -998,7 +1008,12 @@ end)
 
 AddEventHandler('esx_tequilalajob:hasExitedMarker', function(zone)
 
+     if (zone == 'SellFarm') and PlayerData.job ~= nil and PlayerData.job.name == 'tequilala' then
+    TriggerServerEvent('esx_tequilala:stopSell')
+  end
+
     CurrentAction = nil
+
     ESX.UI.Menu.CloseAll()
 
 end)
@@ -1111,6 +1126,10 @@ Citizen.CreateThread(function()
         if CurrentAction == 'menu_fridge' then
             OpenFridgeMenu()
         end
+
+        if CurrentAction == 'farm_resell' then
+                TriggerServerEvent('esx_tequilala:startSell', CurrentActionData.zone)
+            end
 
         if CurrentAction == 'menu_shop' then
             OpenShopMenu(CurrentActionData.zone)

@@ -1,3 +1,3 @@
 Config            = {}
 Config.Locale     = 'fr'
-Config.MaxPlayers = 32
+Config.MaxPlayers = 64

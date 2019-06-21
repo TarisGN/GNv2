@@ -1,4 +1,4 @@
-petrolCanPrice = 1
+petrolCanPrice = 200
 
 --lang = "en"
 lang = "fr"
@@ -32,9 +32,9 @@ settings["fr"] = {
 	percent = "pourcent",
 	confirm = "Valider",
 	fuelStation = "Station essence",
-	boatFuelStation = "Station d'essence | Bateau",
-	avionFuelStation = "Station d'essence | Avions",
-	heliFuelStation = "Station d'essence | Hélicoptères",
+	boatFuelStation = "Station : Bateaux",
+	avionFuelStation = "Station : Avions",
+	heliFuelStation = "Station : Hélicoptères",
 	getJerryCan = "Appuyez sur ~g~E~w~ pour acheter un bidon d'essence ("..petrolCanPrice.."$)",
 	refeel = "Appuyez sur ~g~E~w~ pour remplir votre voiture d'essence.",
 	YouHaveBought = "Vous avez acheté ",

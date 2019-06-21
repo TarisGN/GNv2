@@ -95,14 +95,14 @@ Citizen.CreateThread(function ()
 			for i = 1, #CivRepairStation do
 				garageCoords2 = CivRepairStation[i]
 				DrawMarker(-27, garageCoords2[1], garageCoords2[2], garageCoords2[3], 0, 0, 0, 0, 0, 0, 5.0, 5.0, 2.0, 0, 157, 0, 155, 0, 0, 2, 0, 0, 0, 0)
-				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 and PlayerData.job ~= nil and PlayerData.job.name == 'mecano' then
-				 ESX.ShowHelpNotification('Appuyez sur ~INPUT_CONTEXT~ pour une réparation rapide')
+				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) < 5 then
+				 ESX.ShowHelpNotification('Appuyez sur ~INPUT_CONTEXT~ pour une reparation rapide')
 					if(IsControlJustPressed(1, quickKey)) then
 						AutoRepair()
 						insidemarkercheck = true
 					end
 				end
-				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) > 5 and PlayerData.job ~= nil and PlayerData.job.name == 'mecano' then
+				if GetDistanceBetweenCoords(GetEntityCoords(GetPlayerPed(-1)), garageCoords2[1], garageCoords2[2], garageCoords2[3], true ) > 5 then
 					    if ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'civrepair_menu') then
        						ESX.UI.Menu.CloseAll()
    					end
@@ -167,40 +167,40 @@ if insidemarkercheck == false and stage1 == false and stage2 == false and stage3
 end
 
 if insidemarkercheck == true and stage1 == true and stage2 == false and stage3 == false and stage4 == false and stage5 == false and stage6 == false then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre véhicule ~o~Revenez plus tard"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre vehicule ~o~Revenez plus tard"))
   Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Status: ~r~25%"))
-    Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Vérification du véhicule.."))
+    Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Verification du vehicule.."))
 end
 
 if insidemarkercheck == true and stage1 == false and stage2 == true and stage3 == false and stage4 == false and stage5 == false and stage6 == false then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre véhicule ~o~Revenez plus tard"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre vehicule ~o~Revenez plus tard"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Status: ~o~45%"))
- Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Réparation du moteur.."))
+ Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Reparation du moteur.."))
 end 
 
 if insidemarkercheck == true and stage1 == false and stage2 == false and stage3 == true and stage4 == false and stage5 == false and stage6 == false then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre véhicule ~o~Revenez plus tard"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre vehicule ~o~Revenez plus tard"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Status: ~o~60%"))
- Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Réparation de la transmission.."))
+ Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Reparation de la transmission.."))
 end 
 
 
 if insidemarkercheck == true and stage1 == false and stage2 == false and stage3 == false and stage4 == true and stage5 == false and stage6 == false then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre véhicule ~o~Revenez plus tard"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre vehicule ~o~Revenez plus tard"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Status: ~g~85%"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Changement de l'huile.."))
 end 
 
 if insidemarkercheck == true and stage1 == false and stage2 == false and stage3 == false and stage4 == false and stage5 == true and stage6 == false then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre véhicule ~o~Revenez plus tard"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Nous regardons encore votre vehicule ~o~Revenez plus tard"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Repair Status: ~g~95%"))
  Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Nettoyage.."))
 end 
 
 if insidemarkercheck == true and stage1 == false and stage2 == false and stage3 == false and stage4 == false and stage5 == false and stage6 == true then
- Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Le véhicule a été réparé et est prêt ~g~Vous pouvez maintenant entrer"))
+ Draw3DText(1153.9860839844, -781.12658691406, 57.598682403564 + 0.2, tostring("~w~Le vehicule a ete repare et est prêt ~g~Vous pouvez maintenant entrer"))
 	           Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564, tostring("~w~Status: ~g~100%"))
-	            Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Véhicule prêt à partir!"))
+	            Draw3DText2(1153.9860839844, -781.12658691406, 57.598682403564 - 0.2, tostring("~w~Vehicule prêt à partir!"))
 end 
 
 		Citizen.Wait(0)
@@ -228,11 +228,11 @@ if stage4 == true then
 end
 
 if locked == true then
-Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Le véhicule a été ~r~fermé'))
+Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Le vehicule a ete ~r~ferme'))
 end
 
 if unlocked == true then
-Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Le véhicule a été ~g~ouvert'))
+Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Le vehicule a ete ~g~ouvert'))
 end
 
 if vehcheck == true then
@@ -250,18 +250,18 @@ if stage5 == true then
 end
 
 if payalert == true then
-Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~La réparation va bientôt commencer'))
+Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~La reparation va bientôt commencer'))
 
 end
 
 if paynotification == true then
 
-Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Payé ~w~pour réparations'))
+Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring('~w~Paye ~w~pour reparations'))
 end
 
 if stage6 == true then
-Draw3DText(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring("~w~Le Véhicule est ~g~prêt ~w~ à être récupéré"))
-Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.1, tostring("~w~Appuyez sur ~r~E~w~ pour Fermé votre véhicule au magasion"))
+Draw3DText(plyPos.x, plyPos.y, plyPos.z + 0.2, tostring("~w~Le Vehicule est ~g~prêt ~w~ à être recupere"))
+Draw3DText2(plyPos.x, plyPos.y, plyPos.z + 0.1, tostring("~w~Appuyez sur ~r~E~w~ pour Ferme votre vehicule au magasion"))
 end
 
 if stage7 == true then

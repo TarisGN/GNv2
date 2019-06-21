@@ -4,18 +4,18 @@ Config = {}
 Config.EnableShops                = true    -- If true spawn Some Shop & Interior NPCs
 
 --Cops--
-Config.EnableCops                 = false    -- If true spawn All Cops at Departments
+Config.EnableCops                 = true    -- If true spawn All Cops at Departments
 --Cops--
 
 --Nightclub--
 Config.EnableNightclubs           = true    -- If true spawn Nightclub NPCs (Need a IPL Loader https://github.com/Bob74/bob74_ipl or other) (After Hours DLC)
 Config.EnableSolomun              = true    -- If true spawn Solomun at Nightclub DJ
-Config.EnableDixon                = true   -- If true spawn Dixon at Nightclub DJ
+Config.EnableDixon                = false   -- If true spawn Dixon at Nightclub DJ
 --Nightclub--
 
 --Biker DLC--
 Config.EnableDrugs                = true    -- If true spawn NPCs & Guards at Druglabors (Biker DLC)
-Config.EnableWeapons              = true    -- If true spawn Guards with Weapons (can change in ped.lua)
+Config.EnableWeapons              = true    -- If true spawn Guards with Weapons (can change in main.lua)
 --Biker DLC--
 
 
@@ -24,10 +24,13 @@ Config.EnableWeapons              = true    -- If true spawn Guards with Weapons
 Config.Locations1 = { -- Some Shop & Interior NPCs
 	--{ x = 241.06,   y = -1378.91, z = 32.74, heading = 148.30 },	-- esx_dmvschool
 	{ x = 262.43,   y = -1360.00, z = 23.55, heading = 47.15 },    -- Central Hospital Main
-	{ x = 265.91,   y = -1358.64, z = 23.55, heading = 316.30 },    -- Central Hospital Main 2
+	{ x = 265.91,   y = -1358.64, z = 23.55, heading = 316.30 }, -- Central Hospital Main 2
+	{ x = 359.77,   y = -584.56, z = 27.82, heading = 242.78 }, -- Central Hospital Main 3
 	{ x = 440.85,   y = -978.41,  z = 29.69, heading = 165.95 },    -- PD Main Welcome
 	{ x = 458.97,   y = -1017.28, z = 27.16, heading = 93.50 },    -- PD Main Garage
 	{ x = -1117.15, y = -503.20,  z = 34.81, heading = 294.48 },    -- Moneywash Moveact
+	{ x = -1048.93, y = -523.75,  z = 35.59, heading = 16.9 },    -- Moneywash Moveact
+	{ x = -1517.12, y = -919.31,  z = 9.17, heading = 129 },    -- PLAGE
 	{ x = -705.93,  y = -914.33,  z = 18.22, heading = 81.50 },    -- LT Gasoline1
 	{ x = -47.14,   y = -1758.82, z = 28.42, heading = 46.58 },    -- LT Gasoline2
 	{ x = 2678.57,  y = 3278.88,  z = 54.24, heading = 337.70 },    -- 24/7 Freeway
@@ -233,6 +236,8 @@ Config.Locations22 = { -- Guards Weapons
 	{ x = 1055.62,  y = -3191.79,z = -40.15,heading = 178.32 },	-- GuardsWeed
 	{ x = 1035.94,  y = -3206.06,z = -39.17,heading = 284.78 },	-- GuardsWeed
 	{ x = 1042.39,  y = -3194.08,z = -39.16,heading = 180.62 },	-- GuardsWeed
+	{ x = -428.51,  y = -1725.88, z = 18.78, heading = 138.9 },	-- Guardsweed2
+	{ x = -433.14,  y = -1727.96, z = 17.82,  heading = 334.24 },	-- Guardsweed3
 	{ x = 999.07,   y = -3198.55,z = -37.39,heading = 264.22 },	-- GuardsMeth
 	{ x = 1016.91,  y = -3198.42,z = -39.99,heading = 122.70 },	-- GuardsMeth
 	{ x = 2433.71,  y = 4975.68, z = 45.57, heading = 16.02 },	-- Guardsopium

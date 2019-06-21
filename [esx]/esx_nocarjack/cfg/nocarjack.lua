@@ -1,6 +1,6 @@
 cfg = {}
 
-cfg.chance = 80 -- chance of being unlocked in percentage
+cfg.chance = 40 -- chance of being unlocked in percentage
 
 cfg.blacklist = { -- vehicles that will always be locked when spawned naturally
   "T20",
@@ -19,6 +19,7 @@ cfg.blacklist = { -- vehicles that will always be locked when spawned naturally
   "polf430",
   "policeb",
   "police7",
+  "lazer",
   "RHINO"
 }
 

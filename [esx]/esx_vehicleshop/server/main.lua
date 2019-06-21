@@ -377,6 +377,17 @@ ESX.RegisterServerCallback('esx_vehicleshop:resellVehicle', function (source, cb
 					if vehicle.model == model then
 						if vehicle.plate == plate then
 							xPlayer.addMoney(resellPrice)
+							
+							local societyAccount = nil
+
+							TriggerEvent('esx_addonaccount:getSharedAccount', 'society_cardealer', function(account)
+							  societyAccount = account
+							end)
+							if societyAccount ~= nil then
+							societyAccount.addMoney(resellPrice)
+							end
+
+
 							RemoveOwnedVehicle(plate)
 
 							cb(true)

@@ -104,6 +104,28 @@ Config.Garages = {
 			Functionmenu = StockVehicleMenu,
 		}, 	
 	},	
+
+	Garage_Bar2 = {	
+		Pos = {x = -1711.38,y = -1129.71,z = 13.6},
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = 'Garage',
+		HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour ouvrir le garage",
+		Functionmenu = OpenMenuGarage,
+		SpawnPoint = {
+			Pos = {x = -1727.27,y = -1121.81,z = 13.07},
+			Heading = 160.0,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir votre véhicule",
+			Functionmenu = ListVehiclesMenu,
+		},
+		DeletePoint = {
+			Pos = {x = -1719.48,y = -1129.74,z = 13.15},
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour rentrer votre véhicule",
+			Functionmenu = StockVehicleMenu,
+		}, 	
+	},	
+
 	Garage_Ocean2 = {	
 		Pos = {x = -2982.561,y = 327.506,z = 14.935},
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
@@ -284,6 +306,90 @@ Config.Garages = {
 			Functionmenu = StockVehicleMenu,
 		}, 	
 	},	
+
+	Garage_bennys = {	
+		Pos = {x = -154.7,y = -1305.25,z = 31.33 },
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = 'Garage',
+		HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour ouvrir le garage",
+		Functionmenu = OpenMenuGarage,
+		SpawnPoint = {
+			Pos = {x = -185.13,y = -1289.73,z = 31.33 },
+			Heading = 359.92,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir votre véhicule",
+			Functionmenu = ListVehiclesMenu,
+		},
+		DeletePoint = {
+			Pos = {x = -164.32,y = -1295.56,z = 31.12 },
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour rentrer votre véhicule",
+			Functionmenu = StockVehicleMenu,
+		}, 	
+	},	
+
+	Garage_vignoble = {	
+		Pos = {x = -1897.61,y = 1995.25,z = 141.9 },
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = 'Garage',
+		HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour ouvrir le garage",
+		Functionmenu = OpenMenuGarage,
+		SpawnPoint = {
+			Pos = {x = -1906.58,y = 2000.01,z = 142.01 },
+			Heading = 359.92,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir votre véhicule",
+			Functionmenu = ListVehiclesMenu,
+		},
+		DeletePoint = {
+			Pos = {x = -1891.4,y = 2001.29,z = 141.9 },
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour rentrer votre véhicule",
+			Functionmenu = StockVehicleMenu,
+		}, 	
+	},	
+
+	Garage_lsoccas = {	
+		Pos = {x = -26.53,y = -1682.09,z = 29.42 },
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = 'Garage',
+		HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour ouvrir le garage",
+		Functionmenu = OpenMenuGarage,
+		SpawnPoint = {
+			Pos = {x = -35.57,y = -1685.57,z = 29.38 },
+			Heading = 359.92,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir votre véhicule",
+			Functionmenu = ListVehiclesMenu,
+		},
+		DeletePoint = {
+			Pos = {x = -37.08,y = -1680.85,z = 29.45 },
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour rentrer votre véhicule",
+			Functionmenu = StockVehicleMenu,
+		}, 	
+	},	
+
+	Garage_boite = {	
+		Pos = {x = 193.8,y = -3156.74,z = 5.79 },
+		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
+		Name = 'Garage',
+		HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour ouvrir le garage",
+		Functionmenu = OpenMenuGarage,
+		SpawnPoint = {
+			Pos = {x = 166.23,y = -3146.39,z = 5.88 },
+			Heading = 359.92,
+			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir votre véhicule",
+			Functionmenu = ListVehiclesMenu,
+		},
+		DeletePoint = {
+			Pos = {x = 166.23,y = -3159.63,z = 5.88 },
+			Marker = { w= 1.5, h= 1.0,r=255,g=0,b=0},
+			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour rentrer votre véhicule",
+			Functionmenu = StockVehicleMenu,
+		}, 	
+	},	
 	--[[ Garage_Tournoi = {	
 		Pos = {x = 3171.8381347656,y = -1667.3009033203,z = 6.4746117591858 },
 		Marker = { w= 1.5, h= 1.0,r = 204, g = 204, b = 0},
@@ -310,7 +416,7 @@ Config.GaragesMecano = {
 	Bennys = {
 		Name = 'Fourriere Externe',
 		SpawnPoint = {
-			Pos = {x = 477.729,y = -1888.856,z = 26.094},
+			Pos = {x = 477.729,y = -1888.856,z = 25.094},
 			Heading = 303.0,
 			Marker = { w= 1.5, h= 1.0,r=0,g=255,b=0},
 			HelpPrompt = "Appuyer sur ~INPUT_PICKUP~ pour sortir un véhicule de fourrière",
@@ -339,7 +445,7 @@ Config.GaragesMecano = {
 			Functionmenu = StockVehicleFourriereMenu,
 		}, 	
 	},	
-	--[[ Bennys2 = {
+	 Bennys2 = {
 		Marker = 1,
 		SpawnPoint = {
 			Pos = {x=-190.455, y= -1290.654, z= 30.295},
@@ -353,5 +459,5 @@ Config.GaragesMecano = {
 			Size  = {x = 3.0, y = 3.0, z = 1.0},
 			Marker = 1
 		}, 	
-	},]]
+	},
 }

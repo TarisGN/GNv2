@@ -7,6 +7,7 @@ files {
 	"html/ui.html",
   "html/js/index.js",
   "html/css/style.css",
+  "html/fonts/GoodBrush.ttf",
 }
 
 client_script {

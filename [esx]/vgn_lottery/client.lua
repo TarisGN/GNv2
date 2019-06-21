@@ -1,13 +1,13 @@
 ESX = nil
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
-Citizen.Create​Thread(function()
+Citizen.CreateThread(function()
     while true do
-        Citiz​en.Wait(0)
+        Citizen.Wait(0)
     end
 end)
 
-RegisterNetEvent('vgn_lotte​ry:buyTicket')
+RegisterNetEvent('vgn_lottery:buyTicket')
 AddEventHandler('vgn_lottery:buyTicket', function()
 
 end)

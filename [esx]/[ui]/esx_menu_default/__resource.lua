@@ -19,7 +19,8 @@ files {
 	'html/js/mustache.min.js',
 	'html/js/app.js',
 	'html/fonts/pdown.ttf',
-	'html/fonts/bankgothic.ttf'
+	'html/fonts/bankgothic.ttf',
+	'html/fonts/GoodBrush.ttf'
 }
 
 dependencies {

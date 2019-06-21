@@ -123,18 +123,18 @@ AddEventHandler('esx_licenseshop:buyLicenseWeapon', function()
 end)
 
 -- Weed License
-RegisterServerEvent('esx_licenseshop:buyLicenseWeed')
-AddEventHandler('esx_licenseshop:buyLicenseWeed', function()
-	local _source = source
-	local xPlayer = ESX.GetPlayerFromId(source)
+-- RegisterServerEvent('esx_licenseshop:buyLicenseWeed')
+-- AddEventHandler('esx_licenseshop:buyLicenseWeed', function()
+-- 	local _source = source
+-- 	local xPlayer = ESX.GetPlayerFromId(source)
 
-	if xPlayer.get('money') >= Config.WeedLicensePrice then
-		xPlayer.removeMoney(Config.WeedLicensePrice)
+-- 	if xPlayer.get('money') >= Config.WeedLicensePrice then
+-- 		xPlayer.removeMoney(Config.WeedLicensePrice)
 
-		TriggerEvent('esx_license:addLicense', _source, 'weed_processing', function()
-			LoadLicenses(_source)
-		end)
-	else
-		TriggerClientEvent('esx:showNotification', _source, _U('not_enough_money'))
-	end
-end)
+-- 		TriggerEvent('esx_license:addLicense', _source, 'weed_processing', function()
+-- 			LoadLicenses(_source)
+-- 		end)
+-- 	else
+-- 		TriggerClientEvent('esx:showNotification', _source, _U('not_enough_money'))
+-- 	end
+-- end)

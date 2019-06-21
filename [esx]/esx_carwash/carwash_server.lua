@@ -3,7 +3,7 @@ ESX = nil
 
 enableprice = true -- true = carwash is paid, false = carwash is free
 
-price = 100 -- you may edit this to your liking. if "enableprice = false" ignore this one
+price = 200 -- you may edit this to your liking. if "enableprice = false" ignore this one
 
 --DO-NOT-EDIT-BELLOW-THIS-LINE--
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)

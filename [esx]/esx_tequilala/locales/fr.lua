@@ -58,7 +58,7 @@ Locales['fr'] = {
     ['you_added']                = 'Vous avez ajouté x',
     ['quantity']                 = 'Quantité',
     ['inventory']                = 'Inventaire',
-    ['unicorn_stock']            = 'Stock du Vanilla Unicorn',
+    ['unicorn_stock']            = 'Stock du Tequilala',
 
     -- Billing Menu  
     ['billing']                  = 'Facture',
@@ -106,12 +106,31 @@ Locales['fr'] = {
     ['not_enough']               = 'Pas assez de ~r~ ',
     ['craft']                    = 'Mélange terminé de ~g~',
 
+    ['press_sell']                = 'Appuyez Pour Vendre', 
+      ['sale_in_prog']              = 'Vente en Cours',
+  ['comp_earned']               = 'Argent Gagné ',
+  ['no_product_sale']           = 'Pas produit a vendre',
+
+    ['debalbiere']             = 'Déballage bière',
+    ['debalwhisky']             = 'Déballage whisky',
+    ['debalsake']             = 'Déballage saké',
+    ['debalenergy']             = 'Déballage energy',
+    ['debalsoda']             = 'Déballage Soda',
+    ['debalvodka']             = 'Déballage vodka',
+
+    ['packbiere']             = 'pack de bière',
+    ['packwhisky']             = 'boite de whisky',
+    ['packsake']             = 'boite de saké',
+    ['packenergy']             = 'pack d\'energy',
+    ['packsoda']             = 'pack de Soda',
+    ['packvodka']             = 'boite de vodka',
+
     -- Misc  
-    ['map_blip']                 = 'Vanilla Unicorn',
-    ['unicorn']                  = 'Vanilla Unicorn',
+    ['map_blip']                 = 'Tequilala',
+    ['unicorn']                  = 'Tequilala',
 
     -- Phone  
-    ['unicorn_phone']            = 'Unicorn',
+    ['unicorn_phone']            = 'Tequilala',
     ['unicorn_customer']         = 'Citoyen',
 
     -- Teleporters
@@ -119,5 +138,8 @@ Locales['fr'] = {
     ['e_to_exit_1']              = 'Appuyez sur ~INPUT_PICKUP~ pour passer devant le bar.',
     ['e_to_enter_2']             = 'Appuyez sur ~INPUT_PICKUP~ pour monter sur le toit.',
     ['e_to_exit_2']              = 'Appuyez sur ~INPUT_PICKUP~ pour descendre dans les bureaux.',
+
+
+   
     
 }

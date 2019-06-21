@@ -13,7 +13,7 @@ local Keys = {
 local voice = {default = 5.0, shout = 12.0, whisper = 1.0, current = 0, level = nil}
 
 function drawLevel(r, g, b, a)
-	SetTextFont(4)
+	SetTextFont(1)
 	SetTextProportional(1)
 	SetTextScale(0.5, 0.5)
 	SetTextColour(r, g, b, a)
@@ -41,7 +41,7 @@ Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(1)
 
-		if IsControlJustPressed(1, Keys['H']) and IsControlPressed(1, Keys['LEFTSHIFT']) then
+		if IsControlJustPressed(1, Keys["F9"]) then
 			voice.current = (voice.current + 1) % 3
 			if voice.current == 0 then
 				NetworkSetTalkerProximity(voice.default)

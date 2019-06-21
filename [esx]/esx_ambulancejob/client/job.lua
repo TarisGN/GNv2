@@ -50,6 +50,7 @@ function OpenMobileAmbulanceActionsMenu()
 					{label = _U('ems_menu_revive'), value = 'revive'},
 					{label = _U('ems_menu_small'), value = 'small'},
 					{label = _U('ems_menu_big'), value = 'big'},
+					{label = _U('create_bill'), value = 'create_bill'},
 					{label = _U('ems_menu_putincar'), value = 'put_in_vehicle'}
 				}
 			}, function(data, menu)
@@ -60,6 +61,11 @@ function OpenMobileAmbulanceActionsMenu()
 				if closestPlayer == -1 or closestDistance > 1.0 then
 					ESX.ShowNotification(_U('no_players'))
 				else
+
+				if data.current.value == 'billing' then
+						OpenBillingMenu()
+					  end
+
 
 					if data.current.value == 'revive' then
 
@@ -191,6 +197,39 @@ function FastTravel(coords, heading)
 		end
 	end)
 end
+
+function OpenBillingMenu()
+
+	ESX.UI.Menu.Open(
+	  'dialog', GetCurrentResourceName(), 'billing',
+	  {
+		title = _U('billing_amount')
+	  },
+	  function(data, menu)
+	  
+		local amount = tonumber(data.value)
+		local player, distance = ESX.Game.GetClosestPlayer()
+  
+		if player ~= -1 and distance <= 3.0 then
+  
+		  menu.close()
+		  if amount == nil then
+			  ESX.ShowNotification(_U('amount_invalid'))
+		  else
+			  TriggerServerEvent('esx_billing:sendBill', GetPlayerServerId(player), 'society_ambulance', _U('billing'), amount)
+		  end
+  
+		else
+		  ESX.ShowNotification(_U('no_players_nearby'))
+		end
+  
+	  end,
+	  function(data, menu)
+		  menu.close()
+	  end
+	)
+  end
+
 
 -- Draw markers & Marker logic
 Citizen.CreateThread(function()
@@ -846,10 +885,9 @@ end
 
 function drawLoadingText(text, red, green, blue, alpha)
 	SetTextFont(4)
-	SetTextProportional(0)
 	SetTextScale(0.0, 0.5)
 	SetTextColour(red, green, blue, alpha)
-	SetTextDropShadow(0, 0, 0, 0, 255)
+	SetTextDropshadow(0, 0, 0, 0, 255)
 	SetTextEdge(1, 0, 0, 0, 255)
 	SetTextDropShadow()
 	SetTextOutline()
